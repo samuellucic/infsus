@@ -1,0 +1,92 @@
+<mxfile host="app.diagrams.net" modified="2024-03-30T20:53:53.861Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="kZASOklmr9sFu_Uf7STI" version="24.2.1" type="google">
+  <diagram name="Page-1" id="RCe4WejZkpk5e16ez-9m">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-5" value="" style="group" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="400" y="400" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-6" value="" style="shape=stencil(tZRtDsIgDIZPw1/DIB7AoN4DZ3VEhAXw6/Z2YxqZsqjZkmVJ+7KHtx2FcOErWQNhtCJ8SRgrKMU3xpdeLH0NZYjJs3RKbjRExQdnD3BR29AxlKnAqdCofEXoAtc0DxelNQYhyhqfKC86wqQy+C29Rli3/S2JauQfIYDrTMYsYevvsbP5NOBiIr8p9uF+dL/jgVPHxVQ/bjRw8T+WC8zkDjcXG1ke9s6ezPajmVZxzXANH/r+RPYn9qOrzN5c7KyDAVM7pXUc7IE21rIZ+TfhIR/tGXI1sYzplKCVeSE8K/2JUWrrh4rAfKaOL7uQXdCy3/rcZuOt2ybu);whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="V3jbw1-b-qqi8_4cZRq6-5">
+          <mxGeometry width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-7" value="Unesi prodaju nekretnine" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="V3jbw1-b-qqi8_4cZRq6-5">
+          <mxGeometry y="30" width="120" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-8" value="P8.3" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="V3jbw1-b-qqi8_4cZRq6-5">
+          <mxGeometry width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-9" value="" style="group" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="240" y="400" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-10" value="" style="shape=stencil(tZRtDsIgDIZPw1/DIB7AoN4DZ3VEhAXw6/Z2YxqZsqjZkmVJ+7KHtx2FcOErWQNhtCJ8SRgrKMU3xpdeLH0NZYjJs3RKbjRExQdnD3BR29AxlKnAqdCofEXoAtc0DxelNQYhyhqfKC86wqQy+C29Rli3/S2JauQfIYDrTMYsYevvsbP5NOBiIr8p9uF+dL/jgVPHxVQ/bjRw8T+WC8zkDjcXG1ke9s6ezPajmVZxzXANH/r+RPYn9qOrzN5c7KyDAVM7pXUc7IE21rIZ+TfhIR/tGXI1sYzplKCVeSE8K/2JUWrrh4rAfKaOL7uQXdCy3/rcZuOt2ybu);whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="V3jbw1-b-qqi8_4cZRq6-9">
+          <mxGeometry width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-11" value="Otkaži obilaske povezane s prodanom nekretninom" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="V3jbw1-b-qqi8_4cZRq6-9">
+          <mxGeometry y="30" width="120" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-12" value="P8.2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="V3jbw1-b-qqi8_4cZRq6-9">
+          <mxGeometry width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-23" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 11px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;Prodana nekretnina&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="V3jbw1-b-qqi8_4cZRq6-21" target="V3jbw1-b-qqi8_4cZRq6-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-32" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 11px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;Prodana nekretnina&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="V3jbw1-b-qqi8_4cZRq6-21" target="V3jbw1-b-qqi8_4cZRq6-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-21" value="D5&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Nekretnina" style="html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.dataStoreID;align=left;spacingLeft=3;points=[[0,0,0,0,0],[0,0.5,0,0,0],[0,1,0,0,0],[0.25,0,0,0,0],[0.5,0,0,0,0],[0.5,1,0,0,0],[0.75,0,0,0,0],[1,0,0,0,0],[1,0.5,0,0,0],[1,1,0,0,0]];strokeColor=default;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="320" y="300" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-22" value="Nekretnina" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="V3jbw1-b-qqi8_4cZRq6-21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="240" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-24" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.008;entryY=0.333;entryDx=0;entryDy=0;entryPerimeter=0;elbow=vertical;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="319.99999999999994" y="179.50000000000003" as="targetPoint" />
+            <mxPoint x="100.96000000000001" y="179.53" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-37" value="Prodana nekretnina" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="V3jbw1-b-qqi8_4cZRq6-24">
+          <mxGeometry x="-0.0955" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-27" value="" style="group" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="320" y="120" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-28" value="" style="shape=stencil(tZRtDsIgDIZPw1/DIB7AoN4DZ3VEhAXw6/Z2YxqZsqjZkmVJ+7KHtx2FcOErWQNhtCJ8SRgrKMU3xpdeLH0NZYjJs3RKbjRExQdnD3BR29AxlKnAqdCofEXoAtc0DxelNQYhyhqfKC86wqQy+C29Rli3/S2JauQfIYDrTMYsYevvsbP5NOBiIr8p9uF+dL/jgVPHxVQ/bjRw8T+WC8zkDjcXG1ke9s6ezPajmVZxzXANH/r+RPYn9qOrzN5c7KyDAVM7pXUc7IE21rIZ+TfhIR/tGXI1sYzplKCVeSE8K/2JUWrrh4rAfKaOL7uQXdCy3/rcZuOt2ybu);whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="V3jbw1-b-qqi8_4cZRq6-27">
+          <mxGeometry width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-30" value="Označi nekretninu kao prodanu" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="V3jbw1-b-qqi8_4cZRq6-27">
+          <mxGeometry y="30" width="120" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-31" value="P8.1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="V3jbw1-b-qqi8_4cZRq6-27">
+          <mxGeometry width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="IRlDTzLTfDU9V5R3QrtU-2" value="D2&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Prodaja" style="html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.dataStoreID;align=left;spacingLeft=3;points=[[0,0,0,0,0],[0,0.5,0,0,0],[0,1,0,0,0],[0.5,0,0,0,0],[0.5,1,0,0,0],[0.75,0,0,0,0],[1,0,0,0,0],[1,0.5,0,0,0],[1,1,0,0,0]];" vertex="1" parent="1">
+          <mxGeometry x="400" y="600" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-34" value="Prodaja" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="V3jbw1-b-qqi8_4cZRq6-7" target="IRlDTzLTfDU9V5R3QrtU-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IK5yI2W9D8475rJQEoiN-1" value="D4&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Obilazak" style="html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.dataStoreID;align=left;spacingLeft=3;points=[[0,0,0,0,0],[0,0.5,0,0,0],[0,1,0,0,0],[0.25,1,0,0,0],[0.5,0,0,0,0],[0.5,1,0,0,0],[0.75,1,0,0,0],[1,0,0,0,0],[1,0.5,0,0,0],[1,1,0,0,0]];" vertex="1" parent="1">
+          <mxGeometry x="240" y="600" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V3jbw1-b-qqi8_4cZRq6-33" value="Zahtjev" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="V3jbw1-b-qqi8_4cZRq6-11" target="IK5yI2W9D8475rJQEoiN-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0muCAYyyWTRPFZDx8KWT-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="174" width="10" height="10" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,204 @@
+<mxfile host="app.diagrams.net" modified="2024-03-30T20:52:17.127Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="a8UTARQ25zT0-OX4ecmr" version="24.2.1" type="google">
+  <diagram name="Page-1" id="d0EG7WKD9fxEBYm7S8hR">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-42" value="" style="group;points=[[0,0,0,0,0],[0,0.25,0,0,0],[0,0.5,0,0,0],[0,0.75,0,0,0],[0,1,0,0,0],[0.12,0,0,0,0],[0.12,1,0,0,0],[0.25,0,0,0,0],[0.25,1,0,0,0],[0.5,0,0,0,0],[0.5,1,0,0,0],[0.75,0,0,0,0],[0.75,1,0,0,0],[0.88,0,0,0,0],[0.88,1,0,0,0],[1,0,0,0,0],[1,0.25,0,0,0],[1,0.5,0,0,0],[1,0.75,0,0,0],[1,1,0,0,0]];" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="1480" y="320" width="280" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-43" value="" style="shape=stencil(tZRtDsIgDIZPw1/DIB7AoN4DZ3VEhAXw6/Z2YxqZsqjZkmVJ+7KHtx2FcOErWQNhtCJ8SRgrKMU3xpdeLH0NZYjJs3RKbjRExQdnD3BR29AxlKnAqdCofEXoAtc0DxelNQYhyhqfKC86wqQy+C29Rli3/S2JauQfIYDrTMYsYevvsbP5NOBiIr8p9uF+dL/jgVPHxVQ/bjRw8T+WC8zkDjcXG1ke9s6ezPajmVZxzXANH/r+RPYn9qOrzN5c7KyDAVM7pXUc7IE21rIZ+TfhIR/tGXI1sYzplKCVeSE8K/2JUWrrh4rAfKaOL7uQXdCy3/rcZuOt2ybu);whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="dFn1XXjw6puc6NIjiMNf-42">
+          <mxGeometry width="280" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-44" value="Agencija za nekretnine" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="dFn1XXjw6puc6NIjiMNf-42">
+          <mxGeometry y="70" width="280" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-45" value="P0" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="dFn1XXjw6puc6NIjiMNf-42">
+          <mxGeometry width="280" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-91" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="dFn1XXjw6puc6NIjiMNf-106" target="dFn1XXjw6puc6NIjiMNf-45">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1619.75" y="180" as="sourcePoint" />
+            <mxPoint x="1619.5" y="290" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-94" value="Unošenje i&amp;nbsp;&lt;div&gt;uređivanje informacija&lt;br&gt;o zaposlenicima&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dFn1XXjw6puc6NIjiMNf-91">
+          <mxGeometry x="0.105" relative="1" as="geometry">
+            <mxPoint y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-83" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.283;entryDx=0;entryDy=0;entryPerimeter=0;elbow=vertical;" edge="1" parent="1" target="dFn1XXjw6puc6NIjiMNf-101">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1120" y="430.07" as="targetPoint" />
+            <mxPoint x="1480" y="428" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-95" value="Pregled informacija&amp;nbsp;&lt;div&gt;o nekretninama&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dFn1XXjw6puc6NIjiMNf-83">
+          <mxGeometry x="0.3379" y="-2" relative="1" as="geometry">
+            <mxPoint x="57" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-88" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;entryX=0.999;entryY=0.412;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2160.28" y="449.99999999999994" as="sourcePoint" />
+            <mxPoint x="1760" y="450.37999999999994" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TGs21EsKZC41kUhLPKQw-4" value="Rezervacija termina obilaska" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dFn1XXjw6puc6NIjiMNf-88">
+          <mxGeometry x="0.468" y="5" relative="1" as="geometry">
+            <mxPoint x="94" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-74" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0.12;exitDx=0;exitDy=0;edgeStyle=elbowEdgeStyle;exitPerimeter=0;elbow=vertical;" edge="1" parent="1" source="dFn1XXjw6puc6NIjiMNf-101" target="dFn1XXjw6puc6NIjiMNf-45">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1210" y="470" as="sourcePoint" />
+            <mxPoint x="1460" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-97" value="Unošenje i uređivanje informacija&amp;nbsp;&lt;div&gt;o nekretninama&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dFn1XXjw6puc6NIjiMNf-74">
+          <mxGeometry x="-0.4521" y="1" relative="1" as="geometry">
+            <mxPoint x="77" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-80" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitX=0.748;exitY=1.001;exitDx=0;exitDy=0;exitPerimeter=0;elbow=vertical;" edge="1" parent="1" source="dFn1XXjw6puc6NIjiMNf-43" target="dFn1XXjw6puc6NIjiMNf-107">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1660" y="610" as="sourcePoint" />
+            <mxPoint x="1660" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TGs21EsKZC41kUhLPKQw-25" value="Pregled&amp;nbsp;&lt;div&gt;nekretnine i kupaca&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dFn1XXjw6puc6NIjiMNf-80">
+          <mxGeometry x="0.0308" y="3" relative="1" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;exitX=0.249;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="dFn1XXjw6puc6NIjiMNf-43" target="dFn1XXjw6puc6NIjiMNf-107">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1580" y="610" as="sourcePoint" />
+            <mxPoint x="1581" y="730" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1550" y="602" />
+              <mxPoint x="1550" y="602" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-99" value="Pregled&amp;nbsp;&lt;div&gt;posjedovanih nekretnina&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dFn1XXjw6puc6NIjiMNf-85">
+          <mxGeometry x="0.2483" y="-4" relative="1" as="geometry">
+            <mxPoint x="4" y="-30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-87" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;exitX=1.002;exitY=0.577;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2159.44" y="500.95" as="targetPoint" />
+            <mxPoint x="1760.0000000000002" y="499.04" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TGs21EsKZC41kUhLPKQw-1" value="Pregled označenih nekretnina" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dFn1XXjw6puc6NIjiMNf-87">
+          <mxGeometry x="0.0844" y="-3" relative="1" as="geometry">
+            <mxPoint x="-16" y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-89" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;elbow=vertical;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="dFn1XXjw6puc6NIjiMNf-45" target="dFn1XXjw6puc6NIjiMNf-105">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2125" y="360" as="targetPoint" />
+            <mxPoint x="1765" y="360" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TGs21EsKZC41kUhLPKQw-3" value="Pregled nekretnina" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dFn1XXjw6puc6NIjiMNf-89">
+          <mxGeometry x="-0.219" y="-3" relative="1" as="geometry">
+            <mxPoint x="29" y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-92" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.85;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.846;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1721.12" y="160" as="targetPoint" />
+            <mxPoint x="1720" y="320" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-93" value="Pregled informacija &lt;br&gt;o zaposlenicima" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="dFn1XXjw6puc6NIjiMNf-92">
+          <mxGeometry x="-0.1593" y="1" relative="1" as="geometry">
+            <mxPoint x="10" y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TGs21EsKZC41kUhLPKQw-18" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.653;exitDx=0;exitDy=0;elbow=vertical;exitPerimeter=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="dFn1XXjw6puc6NIjiMNf-101" target="dFn1XXjw6puc6NIjiMNf-44">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1120" y="523.75" as="sourcePoint" />
+            <mxPoint x="1460" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TGs21EsKZC41kUhLPKQw-19" value="Unošenje i uređivanje informacija o&lt;br&gt;rasporedu obilazaka" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="TGs21EsKZC41kUhLPKQw-18">
+          <mxGeometry x="0.3183" relative="1" as="geometry">
+            <mxPoint x="-53" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-101" value="Agent" style="html=1;dashed=0;whiteSpace=wrap;points=[[0,0,0,0,0],[0,0.25,0,0,0],[0,0.5,0,0,0],[0,0.75,0,0,0],[0,1,0,0,0],[0.25,0,0,0,0],[0.25,1,0,0,0],[0.5,0,0,0,0],[0.5,1,0,0,0],[0.75,0,0,0,0],[0.75,1,0,0,0],[1,0,0,0,0],[1,0.12,0,0,0],[1,0.25,0,0,0],[1,0.37,0,0,0],[1,0.5,0,0,0],[1,0.63,0,0,0],[1,0.75,0,0,0],[1,0.88,0,0,0],[1,1,0,0,0]];" vertex="1" parent="1">
+          <mxGeometry x="1000" y="360" width="120" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="TGs21EsKZC41kUhLPKQw-26" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1760" y="550" as="targetPoint" />
+            <mxPoint x="2160" y="550" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TGs21EsKZC41kUhLPKQw-29" value="Označena nekretnina" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="TGs21EsKZC41kUhLPKQw-26">
+          <mxGeometry x="0.1941" y="2" relative="1" as="geometry">
+            <mxPoint x="38" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-104" value="Kupac" style="html=1;dashed=0;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="2160" y="440" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-105" value="Anonimni korisnik" style="html=1;dashed=0;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="2160" y="320" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-106" value="Administracija" style="html=1;dashed=0;whiteSpace=wrap;points=[[0,0,0,0,0],[0,0.25,0,0,0],[0,0.5,0,0,0],[0,0.75,0,0,0],[0,1,0,0,0],[0.15,1,0,0,0],[0.25,0,0,0,0],[0.25,1,0,0,0],[0.5,0,0,0,0],[0.5,1,0,0,0],[0.75,0,0,0,0],[0.75,1,0,0,0],[0.85,1,0,0,0],[1,0,0,0,0],[1,0.25,0,0,0],[1,0.5,0,0,0],[1,0.75,0,0,0],[1,1,0,0,0]];" vertex="1" parent="1">
+          <mxGeometry x="1480" y="40" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="dFn1XXjw6puc6NIjiMNf-107" value="Vlasnik" style="html=1;dashed=0;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1480" y="760" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="TGs21EsKZC41kUhLPKQw-14" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.814;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=elbowEdgeStyle;elbow=vertical;exitX=0;exitY=0.963;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="dFn1XXjw6puc6NIjiMNf-44" target="dFn1XXjw6puc6NIjiMNf-101">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1120" y="505" as="targetPoint" />
+            <mxPoint x="1460" y="571" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TGs21EsKZC41kUhLPKQw-15" value="Pregled informacija o&lt;br&gt;&amp;nbsp;rasporedu obilazaka" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="TGs21EsKZC41kUhLPKQw-14">
+          <mxGeometry x="0.3379" y="-2" relative="1" as="geometry">
+            <mxPoint x="57" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TGs21EsKZC41kUhLPKQw-22" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.146;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.15;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1521.12" y="160" as="targetPoint" />
+            <mxPoint x="1520" y="320" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TGs21EsKZC41kUhLPKQw-23" value="Izvještaj o&amp;nbsp;&lt;br&gt;prodaji" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="TGs21EsKZC41kUhLPKQw-22">
+          <mxGeometry x="-0.12" y="1" relative="1" as="geometry">
+            <mxPoint y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TGs21EsKZC41kUhLPKQw-35" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.002;exitY=0.458;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.012;entryY=0.529;entryDx=0;entryDy=0;entryPerimeter=0;elbow=horizontal;" edge="1" parent="1" source="dFn1XXjw6puc6NIjiMNf-101">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1123.36" y="470.14" as="sourcePoint" />
+            <mxPoint x="1479.9999999999998" y="470.07000000000005" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TGs21EsKZC41kUhLPKQw-36" value="Podatci o prodaji" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="TGs21EsKZC41kUhLPKQw-35">
+          <mxGeometry x="-0.1948" y="1" relative="1" as="geometry">
+            <mxPoint x="35" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5xD1UV8S2gGRu2L-Wbtx-2" value="Uređivanje korisničkog računa" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="5xD1UV8S2gGRu2L-Wbtx-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1750" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5xD1UV8S2gGRu2L-Wbtx-1" value="Registrirani korisnik" style="html=1;dashed=0;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="2000" y="680" width="120" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
