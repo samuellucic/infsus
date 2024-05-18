@@ -1,0 +1,11 @@
+version: "3.6"
+services:
+  nis_sql_server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d/
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: A_Str0ng_Required_Password
+    ports:
+      - "1433:1433"
