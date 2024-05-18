@@ -11,16 +11,16 @@ class TownService(
 ) {
     fun createTown(town: Town) = townRepository.save(town)
 
-    fun getTownById(id:Long) = townRepository.getReferenceById(id)
+    fun getTownById(id:Long) = townRepository.findById(id).orElseThrow { IllegalArgumentException("Town with this ID does not exist.") }
 
     fun deleteTownById(id: Long) = townRepository.deleteById(id)
 
     @Transactional
-    fun updateTown(town: Town) {
+    fun updateTown(town: Town): Town {
         val existingTown = townRepository.findById(town.id!!)
         if(existingTown.isEmpty) {
             throw IllegalArgumentException("Cannot update non existing town.")
         }
-        townRepository.save(town)
+        return townRepository.save(town)
     }
 }
