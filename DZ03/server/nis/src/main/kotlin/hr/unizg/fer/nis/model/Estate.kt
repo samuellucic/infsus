@@ -1,5 +1,6 @@
 package hr.unizg.fer.nis.model
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import hr.unizg.fer.nis.annotations.DefaultConstructor
 import jakarta.persistence.*
 import jakarta.validation.constraints.Min
@@ -32,13 +33,14 @@ data class Estate(
 
     @ManyToOne
     @JoinColumn(name = "ownerId")
+    @JsonBackReference
     var estateOwner: EstateOwner,
 
     @ManyToOne
     @JoinColumn(name = "townId")
-    val town: Town,
+    var town: Town,
 
     @ManyToOne
     @JoinColumn(name = "estateType")
-    val estateType: EstateType
+    var estateType: EstateType
 )

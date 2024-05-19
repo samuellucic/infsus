@@ -1,5 +1,6 @@
 package hr.unizg.fer.nis.model
 
+import com.fasterxml.jackson.annotation.JsonManagedReference
 import hr.unizg.fer.nis.annotations.DefaultConstructor
 import jakarta.persistence.*
 import jakarta.validation.constraints.Email
@@ -36,8 +37,9 @@ class EstateOwner(
 
     @ManyToOne
     @JoinColumn(name = "townId")
-    var town: Town? = null,
+    var town: Town,
 
     @OneToMany(mappedBy = "estateOwner", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @JsonManagedReference
     val estates: MutableList<Estate> = mutableListOf()
 )

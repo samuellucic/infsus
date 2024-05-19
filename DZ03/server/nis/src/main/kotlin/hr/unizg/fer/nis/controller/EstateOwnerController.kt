@@ -44,7 +44,8 @@ class EstateOwnerController(
         surname = this.surname,
         birthDate = this.birthDate,
         address = this.address,
-        email = this.email
+        email = this.email,
+        town = townService.getTownById(this.townId)
     )
 
     fun EstateOwnerUpdateRequest.mapToEstate() = EstateOwner(
