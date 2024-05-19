@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Size
 @Entity
 @Table(name = "Estate")
 @DefaultConstructor
-class Estate(
+data class Estate(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -32,7 +32,7 @@ class Estate(
 
     @ManyToOne
     @JoinColumn(name = "ownerId")
-    val estateOwner: EstateOwner,
+    var estateOwner: EstateOwner,
 
     @ManyToOne
     @JoinColumn(name = "townId")

@@ -36,9 +36,8 @@ class EstateOwner(
 
     @ManyToOne
     @JoinColumn(name = "townId")
-    val town: Town,
-
+    var town: Town? = null,
 
     @OneToMany(mappedBy = "estateOwner", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-    val estates: Set<Estate> = emptySet()
+    val estates: MutableList<Estate> = mutableListOf()
 )
