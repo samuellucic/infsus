@@ -30,7 +30,7 @@ class Estate(
     @Size(min = 0, max = 2000, message = "Description of estate should have max 2000 characters.")
     val description: String,
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ownerId")
     val estateOwner: EstateOwner,
 

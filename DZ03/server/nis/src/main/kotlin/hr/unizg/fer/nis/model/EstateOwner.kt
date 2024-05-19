@@ -36,5 +36,9 @@ class EstateOwner(
 
     @ManyToOne
     @JoinColumn(name = "townId")
-    val town: Town
+    val town: Town,
+
+
+    @OneToMany(mappedBy = "estateOwner", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    val estates: Set<Estate> = emptySet()
 )
