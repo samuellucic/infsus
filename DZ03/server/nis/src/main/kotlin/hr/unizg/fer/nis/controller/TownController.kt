@@ -2,6 +2,7 @@ package hr.unizg.fer.nis.controller
 
 import hr.unizg.fer.nis.model.Town
 import hr.unizg.fer.nis.service.TownService
+import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -20,6 +21,9 @@ class TownController(
 ) {
     @PostMapping
     fun createTown(@RequestBody town: Town) = townService.createTown(town)
+
+    @GetMapping("/all")
+    fun getAllTownsPaginated(pageable: Pageable) = townService.getAllTownsPaginated(pageable)
 
     @GetMapping("/{townId}")
     fun getTownById(@PathVariable townId: Long) = townService.getTownById(townId)

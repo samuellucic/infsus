@@ -3,6 +3,7 @@ package hr.unizg.fer.nis.service
 import hr.unizg.fer.nis.model.Town
 import hr.unizg.fer.nis.repository.TownRepository
 import jakarta.transaction.Transactional
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 
 @Service
@@ -23,4 +24,6 @@ class TownService(
         }
         return townRepository.save(town)
     }
+
+    fun getAllTownsPaginated(pageable: Pageable) = townRepository.findAll(pageable)
 }
