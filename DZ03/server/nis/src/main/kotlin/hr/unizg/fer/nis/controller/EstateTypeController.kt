@@ -2,6 +2,7 @@ package hr.unizg.fer.nis.controller
 
 import hr.unizg.fer.nis.model.EstateType
 import hr.unizg.fer.nis.service.EstateTypeService
+import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -23,6 +24,11 @@ class EstateTypeController(
 
     @DeleteMapping
     fun deleteEstateTypeByName(@RequestParam("estateType") estateTypeName: String) = estateTypeService.deleteEstateTypeByName(estateTypeName)
+
+    @ExceptionHandler(DataIntegrityViolationException::class)
+    fun handleDataIntegrityViolationException(ex: DataIntegrityViolationException): ResponseEntity<String> {
+        return ResponseEntity(ex.message, HttpStatus.BAD_REQUEST)
+    }
 
     @ExceptionHandler(IllegalArgumentException::class)
     fun handleIllegalArgumentException(ex: IllegalArgumentException): ResponseEntity<String> {
