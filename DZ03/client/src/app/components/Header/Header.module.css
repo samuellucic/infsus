@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  border-bottom: 1px solid var(--grey-4);
+}
+
+.nav {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  transition: all 200ms ease-in;
+  padding: 1rem 2rem;
+}
+
+
+.button:hover {
+  background-color: var(--hover);
+}
+
+.active, .button:hover.active {
+  background: #10452c;
+}
