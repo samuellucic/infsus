@@ -1,35 +1,17 @@
 'use client';
 
-import RealEstateTypeForm from '../../components/RealEstateTypeForm/RealEstateTypeForm';
-import { useForm } from 'react-hook-form';
-import { RealEstateTypeFormType, RealEstateTypeSchema } from '../../lib/formTypes';
-import { useCallback } from 'react';
+import Link from 'next/link';
 import styles from './page.module.css';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { saveRealEstateType } from '../../api/api';
+import RealEstateTypeList from '@/app/components/RealEstateType/RealEstateTypeForm/RealEstateTypeList';
+import { Button } from '@mui/material';
 
 const RealEstateTypePage = () => {
-  const form = useForm<RealEstateTypeFormType>({
-    resolver: zodResolver(RealEstateTypeSchema),
-    defaultValues: {
-      name: '',
-      description: '',
-    },
-  });
-
-  const { getValues } = form;
-
-  const handleSubmit = useCallback(async () => {
-    // TODO RESPONSE AND ERROR
-    const res = await saveRealEstateType({
-      name: getValues('name'),
-      description: getValues('description'),
-    });
-  }, [getValues]);
-
   return (
     <div className={styles.container}>
-      <RealEstateTypeForm realEstateTypeForm={form} onSubmit={handleSubmit} />
+      <Link href="/real-estate-type-form">
+        <Button variant="outlined" className={styles.button}>Make new estate type</Button>
+      </Link>
+      <RealEstateTypeList />
     </div>
   );
 };

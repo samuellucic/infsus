@@ -10,9 +10,9 @@ import {
   RealEstateTypeDescriptionRequirementsType,
   RealEstateTypeNameRequirementsType,
   RealEstateTypeRequirements,
-} from '../../utils/realEstateTypeValidation';
+} from '../../../utils/realEstateTypeValidation';
 import styles from './RealEstateTypeForm.module.css';
-import FormRequirementLabel from '../CoreComponents/FormRequirementLabel/FormRequirementLabel';
+import FormRequirementLabel from '../../CoreComponents/FormRequirementLabel/FormRequirementLabel';
 
 export interface RealEstateTypeFormProps {
   realEstateTypeForm: UseFormReturn<RealEstateTypeFormType>;
@@ -49,8 +49,6 @@ const RealEstateTypeForm = ({
     );
     trigger('description');
   }, [trigger, watchedDescription]);
-
-  console.log(errors);
 
   return (
     <form
