@@ -3,6 +3,7 @@ package hr.unizg.fer.nis.controller
 import hr.unizg.fer.nis.model.EstateType
 import hr.unizg.fer.nis.service.EstateTypeService
 import org.springframework.dao.DataIntegrityViolationException
+import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -18,6 +19,9 @@ class EstateTypeController(
 
     @GetMapping
     fun getEstateTypeByName(@RequestParam("estateType") estateTypeName: String) = estateTypeService.getEstateTypeByName(estateTypeName)
+
+    @GetMapping("/all")
+    fun getAllEstatesForOwner(pageable: Pageable) = estateTypeService.getAllEstateTypes(pageable)
 
     @PostMapping("/update")
     fun updateEstateType(@RequestBody estateType: EstateType) = estateTypeService.updateEstateType(estateType)
