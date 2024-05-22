@@ -3,6 +3,7 @@ package hr.unizg.fer.nis.service
 import hr.unizg.fer.nis.model.EstateType
 import hr.unizg.fer.nis.repository.EstateTypeRepository
 import org.springframework.dao.DataIntegrityViolationException
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 
 @Service
@@ -27,4 +28,6 @@ class EstateTypeService(
     }
 
     fun deleteEstateTypeByName(name: String) = estateTypeRepository.deleteById(name)
+
+    fun getAllEstateTypes(pageable: Pageable) = estateTypeRepository.findAll(pageable)
 }
