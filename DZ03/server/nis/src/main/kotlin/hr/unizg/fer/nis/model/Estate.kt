@@ -16,19 +16,19 @@ data class Estate(
     val id: Long? = null,
 
     @Column
-    @Min(1)
+    @field:Min(1)
     val price: Double,
 
     @Column
-    @Size(min = 5, max = 100, message = "Address of owner should have between 5 and 100 characters.")
+    @field:Size(min = 5, max = 100, message = "Address of owner should have between 5 and 100 characters.")
     val address: String,
 
     @Column
-    @Min(1)
+    @field:Min(1)
     val area: Int,
 
     @Column
-    @Size(min = 0, max = 2000, message = "Description of estate should have max 2000 characters.")
+    @field:Size(min = 0, max = 2000, message = "Description of estate should have max 2000 characters.")
     val description: String,
 
     @ManyToOne

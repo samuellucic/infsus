@@ -2,6 +2,7 @@ package hr.unizg.fer.nis.controller
 
 import hr.unizg.fer.nis.model.EstateType
 import hr.unizg.fer.nis.service.EstateTypeService
+import jakarta.validation.ConstraintViolationException
 import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
@@ -32,6 +33,12 @@ class EstateTypeController(
     @ExceptionHandler(DataIntegrityViolationException::class)
     fun handleDataIntegrityViolationException(ex: DataIntegrityViolationException): ResponseEntity<String> {
         return ResponseEntity(ex.message, HttpStatus.BAD_REQUEST)
+    }
+
+    @ExceptionHandler(ConstraintViolationException::class)
+    fun handleValidationExceptions(ex: ConstraintViolationException): ResponseEntity<String> {
+        val errors = ex.constraintViolations.joinToString(", ") { it.message }
+        return ResponseEntity(errors, HttpStatus.BAD_REQUEST)
     }
 
     @ExceptionHandler(IllegalArgumentException::class)

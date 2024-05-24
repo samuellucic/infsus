@@ -2,6 +2,7 @@ package hr.unizg.fer.nis.service
 
 import hr.unizg.fer.nis.model.EstateType
 import hr.unizg.fer.nis.repository.EstateTypeRepository
+import jakarta.validation.Valid
 import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
@@ -11,7 +12,7 @@ class EstateTypeService(
     private val estateTypeRepository: EstateTypeRepository
 ) {
 
-    fun createEstateType(estateType: EstateType): EstateType {
+    fun createEstateType(@Valid estateType: EstateType): EstateType {
         if (estateTypeRepository.findById(estateType.name).isPresent) {
             throw DataIntegrityViolationException("Estate type with this name already exists.")
         }

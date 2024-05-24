@@ -5,6 +5,7 @@ import hr.unizg.fer.nis.service.EstateOwnerService
 import hr.unizg.fer.nis.service.EstateService
 import hr.unizg.fer.nis.service.EstateTypeService
 import hr.unizg.fer.nis.service.TownService
+import jakarta.validation.ConstraintViolationException
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -31,6 +32,11 @@ class EstateController(
     @DeleteMapping("/{estateId}")
     fun deleteEstateById(@RequestParam("ownerId") ownerId: Long, @PathVariable estateId: Long) = estateService.deleteByOwnerIdAndEstateId(ownerId, estateId)
 
+    @ExceptionHandler(ConstraintViolationException::class)
+    fun handleValidationExceptions(ex: ConstraintViolationException): ResponseEntity<String> {
+        val errors = ex.constraintViolations.joinToString(", ") { it.message }
+        return ResponseEntity(errors, HttpStatus.BAD_REQUEST)
+    }
 
     @ExceptionHandler(IllegalArgumentException::class)
     fun handleIllegalArgumentException(ex: IllegalArgumentException): ResponseEntity<String> {

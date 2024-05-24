@@ -14,18 +14,18 @@ class Town(
     val id: Long? = null,
 
     @Column
-    @Size(min = 5, max = 100, message = "Name of Town should have between 5 and 100 characters.")
+    @field:Size(min = 5, max = 100, message = "Name of Town should have between 5 and 100 characters.")
     val name: String,
 
     @Column
-    @Size(min = 2, max = 20, message = "Postcode should have between 2 and 20 characters.")
+    @field:Size(min = 2, max = 20, message = "Postcode should have between 2 and 20 characters.")
     val postCode: String,
 
     @Column
-    @Size(min = 5, max = 100, message = "Region should have between 5 and 100 characters.")
+    @field:Size(min = 5, max = 100, message = "Region should have between 5 and 100 characters.")
     val region: String?,
 
     @Column
-    @Size(min = 5, max = 100, message = "Country should have between 5 and 100 characters.")
+    @field:Size(min = 5, max = 100, message = "Country should have between 5 and 100 characters.")
     val country: String
 )

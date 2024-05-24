@@ -2,6 +2,7 @@ package hr.unizg.fer.nis.controller
 
 import hr.unizg.fer.nis.model.Town
 import hr.unizg.fer.nis.service.TownService
+import jakarta.validation.ConstraintViolationException
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -33,6 +34,12 @@ class TownController(
 
     @DeleteMapping("/{townId}")
     fun deleteTownById(@PathVariable townId: Long) = townService.deleteTownById(townId)
+
+    @ExceptionHandler(ConstraintViolationException::class)
+    fun handleValidationExceptions(ex: ConstraintViolationException): ResponseEntity<String> {
+        val errors = ex.constraintViolations.joinToString(", ") { it.message }
+        return ResponseEntity(errors, HttpStatus.BAD_REQUEST)
+    }
 
     @ExceptionHandler(IllegalArgumentException::class)
     fun handleIllegalArgumentException(ex: IllegalArgumentException): ResponseEntity<String> {
