@@ -11,11 +11,11 @@ class EstateTypeService(
     private val estateTypeRepository: EstateTypeRepository
 ) {
 
-    fun createEstateType(estateType: EstateType) {
+    fun createEstateType(estateType: EstateType): EstateType {
         if (estateTypeRepository.findById(estateType.name).isPresent) {
             throw DataIntegrityViolationException("Estate type with this name already exists.")
         }
-        estateTypeRepository.save(estateType)
+        return estateTypeRepository.save(estateType)
     }
 
     fun getEstateTypeByName(name: String) = estateTypeRepository.findById(name).orElseThrow { IllegalArgumentException("Estate type with this name does not exist.") }
