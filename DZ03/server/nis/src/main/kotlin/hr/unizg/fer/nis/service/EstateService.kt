@@ -41,6 +41,12 @@ class EstateService(
         if (existingEstate.isEmpty) {
             throw IllegalArgumentException("Cannot update non-existing estate.")
         }
+        val owner = estateOwnerRepository.findById(estate.estateOwner.id!!).get()
+        owner.estates.add(estate)
+        if (!isValidOwner(owner)) {
+            throw IllegalArgumentException("Owner cannot have more than ${MAX_ESTATES} estates.")
+        }
+        estate.estateOwner = owner
         return estateRepository.save(estate)
     }
 
