@@ -15,6 +15,7 @@ const AppLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
     <>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
+        <Header headerItems={headerItems} />
         {children}
       </ThemeProvider>
     </>
