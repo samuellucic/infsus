@@ -13,10 +13,10 @@ import jakarta.validation.constraints.Size
 class EstateType(
     @Id
     @Column
-    @Size(min = 2, max = 100, message = "Estate type should have between 2 and 100 characters.")
+    @field:Size(min = 2, max = 100, message = "Estate type should have between 2 and 100 characters.")
     val name: String,
 
     @Column
-    @Size(min = 0, max = 2000, message = "Description of estate type should have max 2000 characters.")
+    @field:Size(min = 0, max = 2000, message = "Description of estate type should have max 2000 characters.")
     val description: String?
 )

@@ -3,6 +3,7 @@ package hr.unizg.fer.nis.controller
 import hr.unizg.fer.nis.model.EstateOwner
 import hr.unizg.fer.nis.service.EstateOwnerService
 import hr.unizg.fer.nis.service.TownService
+import jakarta.validation.ConstraintViolationException
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -33,6 +34,11 @@ class EstateOwnerController(
     @DeleteMapping("{ownerId}")
     fun deleteEstateOwnerById(@PathVariable ownerId: Long) = estateOwnerService.deleteEstateOwnerById(ownerId)
 
+    @ExceptionHandler(ConstraintViolationException::class)
+    fun handleValidationExceptions(ex: ConstraintViolationException): ResponseEntity<String> {
+        val errors = ex.constraintViolations.joinToString(", ") { it.message }
+        return ResponseEntity(errors, HttpStatus.BAD_REQUEST)
+    }
 
     @ExceptionHandler(IllegalArgumentException::class)
     fun handleIllegalArgumentException(ex: IllegalArgumentException): ResponseEntity<String> {
