@@ -75,3 +75,11 @@ export interface Town {
   region: string;
   country: string;
 }
+
+export interface Column<T> {
+  id: keyof T;
+  label: string;
+  minWidth?: number;
+  align?: 'right';
+  format?: (value: T[keyof T]) => ReactNodeArray;
+}
