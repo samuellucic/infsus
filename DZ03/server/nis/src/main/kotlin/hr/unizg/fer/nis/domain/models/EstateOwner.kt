@@ -1,4 +1,4 @@
-package hr.unizg.fer.nis.model
+package hr.unizg.fer.nis.domain.models
 
 import com.fasterxml.jackson.annotation.JsonManagedReference
 import hr.unizg.fer.nis.annotations.DefaultConstructor
@@ -14,7 +14,7 @@ const val MAX_ESTATES = 5
 @Table(name = "EstateOwner")
 @DefaultConstructor
 @MaxEstates(max = MAX_ESTATES, message = "Owner cannot have more than 5 estates.")
-class EstateOwner(
+data class EstateOwner(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column

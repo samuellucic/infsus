@@ -1,4 +1,4 @@
-package hr.unizg.fer.nis.model
+package hr.unizg.fer.nis.domain.models
 
 import hr.unizg.fer.nis.annotations.DefaultConstructor
 import jakarta.persistence.Column
@@ -10,7 +10,7 @@ import jakarta.validation.constraints.Size
 @Entity
 @Table(name = "EstateType")
 @DefaultConstructor
-class EstateType(
+data class EstateType(
     @Id
     @Column
     @field:Size(min = 2, max = 100, message = "Estate type should have between 2 and 100 characters.")

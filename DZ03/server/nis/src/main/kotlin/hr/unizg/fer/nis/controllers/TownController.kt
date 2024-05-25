@@ -1,7 +1,7 @@
-package hr.unizg.fer.nis.controller
+package hr.unizg.fer.nis.controllers
 
-import hr.unizg.fer.nis.model.Town
-import hr.unizg.fer.nis.service.TownService
+import hr.unizg.fer.nis.domain.models.Town
+import hr.unizg.fer.nis.adapters.usecases.TownUseCase
 import jakarta.validation.ConstraintViolationException
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
@@ -18,22 +18,22 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/api/town")
 class TownController(
-    private val townService: TownService
+    private val townUseCase: TownUseCase
 ) {
     @PostMapping
-    fun createTown(@RequestBody town: Town) = townService.createTown(town)
+    fun createTown(@RequestBody town: Town) = townUseCase.createTown(town)
 
     @GetMapping("/all")
-    fun getAllTownsPaginated(pageable: Pageable) = townService.getAllTownsPaginated(pageable)
+    fun getAllTownsPaginated(pageable: Pageable) = townUseCase.getAllTownsPaginated(pageable)
 
     @GetMapping("/{townId}")
-    fun getTownById(@PathVariable townId: Long) = townService.getTownById(townId)
+    fun getTownById(@PathVariable townId: Long) = townUseCase.getTownById(townId)
 
     @PostMapping("/update")
-    fun updateTown(@RequestBody town: Town) = townService.updateTown(town)
+    fun updateTown(@RequestBody town: Town) = townUseCase.updateTown(town)
 
     @DeleteMapping("/{townId}")
-    fun deleteTownById(@PathVariable townId: Long) = townService.deleteTownById(townId)
+    fun deleteTownById(@PathVariable townId: Long) = townUseCase.deleteTownById(townId)
 
     @ExceptionHandler(ConstraintViolationException::class)
     fun handleValidationExceptions(ex: ConstraintViolationException): ResponseEntity<String> {

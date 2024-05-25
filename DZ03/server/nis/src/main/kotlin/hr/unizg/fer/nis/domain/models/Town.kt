@@ -1,4 +1,4 @@
-package hr.unizg.fer.nis.model
+package hr.unizg.fer.nis.domain.models
 
 import hr.unizg.fer.nis.annotations.DefaultConstructor
 import jakarta.persistence.*
@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size
 @Entity
 @Table(name = "Town")
 @DefaultConstructor
-class Town(
+data class Town(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column

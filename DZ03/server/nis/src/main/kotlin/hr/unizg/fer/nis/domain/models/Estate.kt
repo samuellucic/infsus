@@ -1,4 +1,4 @@
-package hr.unizg.fer.nis.model
+package hr.unizg.fer.nis.domain.models
 
 import com.fasterxml.jackson.annotation.JsonBackReference
 import hr.unizg.fer.nis.annotations.DefaultConstructor
@@ -16,7 +16,7 @@ data class Estate(
     val id: Long? = null,
 
     @Column
-    @field:Min(1)
+    @field:Min(1, message = "Price of estate should be greater than 0.")
     val price: Double,
 
     @Column
@@ -24,7 +24,7 @@ data class Estate(
     val address: String,
 
     @Column
-    @field:Min(1)
+    @field:Min(1, message = "Area of estate should be greater than 0.")
     val area: Int,
 
     @Column
