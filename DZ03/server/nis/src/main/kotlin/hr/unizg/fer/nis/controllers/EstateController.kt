@@ -2,7 +2,7 @@ package hr.unizg.fer.nis.controllers
 
 import hr.unizg.fer.nis.ports.usecases.requests.EstateCreateRequest
 import hr.unizg.fer.nis.ports.usecases.requests.EstateUpdateRequest
-import hr.unizg.fer.nis.adapters.usecases.EstateUseCase
+import hr.unizg.fer.nis.ports.usecases.IEstateUseCase
 import jakarta.validation.ConstraintViolationException
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/api/estate")
 class EstateController(
-    private val estateUseCase: EstateUseCase,
+    private val estateUseCase: IEstateUseCase,
 ) {
 
     @PostMapping
@@ -23,6 +23,9 @@ class EstateController(
 
     @PostMapping("/update")
     fun updateEstateById(@RequestParam("ownerId") ownerId: Long, @RequestBody estateUpdateRequest: EstateUpdateRequest) = estateUseCase.updateEstate(estateUpdateRequest)
+
+    @GetMapping("/{estateId}")
+    fun getEstateById(@PathVariable estateId: Long) = estateUseCase.getEstateById(estateId)
 
     @DeleteMapping("/{estateId}")
     fun deleteEstateById(@RequestParam("ownerId") ownerId: Long, @PathVariable estateId: Long) = estateUseCase.deleteByOwnerIdAndEstateId(ownerId, estateId)

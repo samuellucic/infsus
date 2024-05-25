@@ -2,7 +2,7 @@ package hr.unizg.fer.nis.adapters.usecases
 
 import hr.unizg.fer.nis.domain.models.EstateOwner
 import hr.unizg.fer.nis.domain.models.MAX_ESTATES
-import hr.unizg.fer.nis.ports.usecases.IEstateServiceUseCase
+import hr.unizg.fer.nis.ports.usecases.IEstateUseCase
 import hr.unizg.fer.nis.ports.usecases.requests.EstateCreateMapper
 import hr.unizg.fer.nis.ports.usecases.requests.EstateCreateRequest
 import hr.unizg.fer.nis.ports.usecases.requests.EstateUpdateMapper
@@ -24,7 +24,7 @@ class EstateUseCase(
     private val validator: Validator,
     private val estateCreateMapper: EstateCreateMapper,
     private val estateUpdateMapper: EstateUpdateMapper
-): IEstateServiceUseCase {
+): IEstateUseCase {
     @Transactional
     override fun createEstateForOwner(estateCreateRequest: EstateCreateRequest): EstateResult {
         val estate = estateCreateMapper.mapToEstate(estateCreateRequest)
@@ -57,7 +57,7 @@ class EstateUseCase(
     override fun deleteByOwnerIdAndEstateId(ownerId: Long, estateId: Long) = IEstateRepository.deleteByEstateOwnerIdAndId(ownerId, estateId)
 
     @Transactional
-    fun updateEstate(estateUpdateRequest: EstateUpdateRequest): EstateResult {
+    override fun updateEstate(estateUpdateRequest: EstateUpdateRequest): EstateResult {
         val estate = estateUpdateMapper.mapToEstate(estateUpdateRequest)
         val violations = validator.validate(estate)
         if (violations.isNotEmpty()) {

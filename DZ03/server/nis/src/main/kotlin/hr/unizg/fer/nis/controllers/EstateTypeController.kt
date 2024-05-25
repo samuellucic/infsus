@@ -1,7 +1,7 @@
 package hr.unizg.fer.nis.controllers
 
 import hr.unizg.fer.nis.domain.models.EstateType
-import hr.unizg.fer.nis.adapters.usecases.EstateTypeUseCase
+import hr.unizg.fer.nis.ports.usecases.IEstateTypeUseCase
 import jakarta.validation.ConstraintViolationException
 import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.data.domain.Pageable
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/api/estateType")
 class EstateTypeController(
-    private val estateTypeUseCase: EstateTypeUseCase
+    private val estateTypeUseCase: IEstateTypeUseCase
 ) {
 
     @PostMapping
