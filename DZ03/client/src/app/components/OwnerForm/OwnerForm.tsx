@@ -172,7 +172,6 @@ const OwnerForm = ({
               variant="outlined"
               className={styles.button}
               type="submit"
-              disabled={Object.keys(errors).length > 0}
               onClick={() => setEnableUpdate((prevState) => !prevState)}>
               Edit
             </Button>

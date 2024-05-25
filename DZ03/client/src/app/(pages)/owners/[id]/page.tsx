@@ -19,13 +19,14 @@ import styles from './page.module.css';
 import { Button } from '@mui/material';
 import Link from 'next/link';
 import { estateTableColumns } from '@/app/utils/estateConstants';
+import dayjs from 'dayjs';
 
 const OwnerDetails = () => {
   const router = useRouter();
   const id = parseInt(useParams().id as string);
-  const [error, setError] = useState<string>('');
 
   const [towns, setTowns] = useState<Town[]>([]);
+  const [error, setError] = useState<string>('');
 
   const form = useForm<OwnerFormType>({
     resolver: zodResolver(OwnerSchema),
@@ -45,7 +46,7 @@ const OwnerDetails = () => {
       setValue('name', data.name);
       setValue('surname', data.surname);
       setValue('email', data.email);
-      setValue('birthDate', data.birthDate);
+      setValue('birthDate', dayjs(data.birthDate));
       setValue('address', data.address);
       setValue('town', data.townId);
     });
