@@ -1,7 +1,7 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
-import { EstateSchema, OwnerFormType } from '@/app/lib/formTypes';
+import { OwnerFormType, OwnerSchema } from '@/app/lib/formTypes';
 import { zodResolver } from '@hookform/resolvers/zod';
 import OwnerForm from '../../../components/OwnerForm/OwnerForm';
 import { useCallback, useEffect, useState } from 'react';
@@ -13,18 +13,19 @@ import styles from './page.module.css';
 const OwnerDetails = () => {
   const router = useRouter();
   const id = parseInt(useParams().id as string);
+  const [error, setError] = useState<string>('');
 
   const [towns, setTowns] = useState<Town[]>([]);
 
   const form = useForm<OwnerFormType>({
-    resolver: zodResolver(EstateSchema),
+    resolver: zodResolver(OwnerSchema),
     defaultValues: {
       name: '',
       surname: '',
       address: '',
       birthDate: '',
       email: '',
-      town: undefined,
+      town: 0,
     },
   });
   const { getValues } = form;
@@ -34,16 +35,20 @@ const OwnerDetails = () => {
   }, []);
 
   const handleSubmit = useCallback(async () => {
-    await createOwner({
-      id,
-      name: getValues('name'),
-      surname: getValues('surname'),
-      email: getValues('email'),
-      birthDate: getValues('birthDate'),
-      address: getValues('address'),
-      townId: getValues('town'),
-    });
-    router.push('/owners');
+    try {
+      await createOwner({
+        id,
+        name: getValues('name'),
+        surname: getValues('surname'),
+        email: getValues('email'),
+        birthDate: getValues('birthDate'),
+        address: getValues('address'),
+        townId: getValues('town'),
+      });
+      router.push('/owners');
+    } catch (error: any) {
+      setError(error.response.data);
+    }
   }, [getValues, id, router]);
 
   return (
@@ -54,6 +59,7 @@ const OwnerDetails = () => {
         onSubmit={handleSubmit}
         towns={towns}
       />
+      <p>{error}</p>
     </div>
   );
 };

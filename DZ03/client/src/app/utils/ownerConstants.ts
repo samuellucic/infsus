@@ -1,11 +1,25 @@
-import { Column, Estate } from '../lib/types';
+import { Column, EstateOwner } from '../lib/types';
 
-export const ownerTableColumns: Column<Estate>[] = [
+export const ownerTableColumns: Column<EstateOwner>[] = [
   {
-    id: 'price',
-    label: 'Price',
+    id: 'name',
+    label: 'First name',
     align: 'center',
     minWidth: 50,
+    format: (a: any) => a,
+  },
+  {
+    id: 'surname',
+    label: 'Last name',
+    align: 'center',
+    minWidth: 50,
+    format: (a: any) => a,
+  },
+  {
+    id: 'birthDate',
+    label: 'DOB',
+    align: 'center',
+    minWidth: 20,
     format: (a: any) => a,
   },
   {
@@ -16,17 +30,25 @@ export const ownerTableColumns: Column<Estate>[] = [
     format: (a: any) => a,
   },
   {
-    id: 'area',
-    label: 'Area',
-    align: 'center',
-    minWidth: 20,
-    format: (a: any) => a,
-  },
-  {
-    id: 'description',
-    label: 'Description',
+    id: 'email',
+    label: 'E-mail',
     align: 'center',
     minWidth: 50,
     format: (a: any) => a,
   },
 ];
+
+export const ownerConstants = {
+  name: {
+    minLength: 2,
+    maxLength: 100,
+  },
+  surname: {
+    minLength: 2,
+    maxLength: 100,
+  },
+  address: {
+    minLength: 5,
+    maxLength: 100,
+  },
+};

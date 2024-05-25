@@ -1,7 +1,9 @@
 export const nameConstants = {
-  minLength: 4,
+  minLength: 2,
+  maxLength: 100,
 };
 
 export const descriptionConstants = {
-  minLength: 4,
+  minLength: 1,
+  maxLength: 2000,
 };

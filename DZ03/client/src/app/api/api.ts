@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {
-  Estate,
   EstateCreate,
+  EstateGet,
   EstateOwner,
   EstateType,
   Pageable,
@@ -54,7 +54,7 @@ export const getEstatesOwnedByOwner = async (
 };
 
 export const getEstate = async (id: number) => {
-  return (await api.get<Estate>(`/estate/${id}`)).data;
+  return (await api.get<EstateGet>(`/estate/${id}`)).data;
 };
 
 export const createEstate = async (estate: EstateCreate) => {

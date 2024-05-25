@@ -1,7 +1,6 @@
 import { Controller, UseFormReturn } from 'react-hook-form';
 import { OwnerFormType } from '../../lib/formTypes';
-import { FormType } from '../CoreComponents/GenericForm/GenericForm';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import InputTextField from '../CoreComponents/InputTextField';
 import { DatePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
@@ -12,7 +11,7 @@ import {
   MenuItem,
   Select,
 } from '@mui/material';
-import { Town } from '../../lib/types';
+import { FormType, Town } from '../../lib/types';
 import styles from './OwnerForm.module.css';
 
 export interface OwnerFormProps {
@@ -35,9 +34,35 @@ const OwnerForm = ({
     control,
     register,
     watch,
-    getValues,
+    trigger,
     formState: { errors },
   } = ownerForm;
+
+  const watchedName = watch('name');
+  const watchedSurname = watch('surname');
+  const watchedAddress = watch('address');
+  const watchedBirthDate = watch('birthDate');
+  const watchedEmail = watch('email');
+  const watchedTown = watch('town');
+
+  useEffect(() => {
+    trigger('name');
+    trigger('surname');
+    trigger('address');
+    trigger('birthDate');
+    trigger('email');
+    trigger('town');
+  }, [
+    trigger,
+    watchedName,
+    watchedSurname,
+    watchedAddress,
+    watchedBirthDate,
+    watchedEmail,
+    watchedTown,
+  ]);
+
+  console.log(errors);
 
   const handleUpdate = useCallback(() => {
     onSubmit();

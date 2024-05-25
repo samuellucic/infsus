@@ -4,7 +4,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { EstateTypeFormType, EstateTypeSchema } from '../../../lib/formTypes';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { getEstateType, updateEstateType } from '@/app/api/api';
 import EstateTypeForm from '../../../components/EstateType/EstateTypeForm/EstateTypeForm';
 import styles from './page.module.css';
@@ -12,6 +12,7 @@ import styles from './page.module.css';
 const EstateTypeDetails = () => {
   const router = useRouter();
   const { name }: { name: string } = useParams();
+  const [error, setError] = useState<string>('');
 
   const form = useForm<EstateTypeFormType>({
     resolver: zodResolver(EstateTypeSchema),
@@ -30,16 +31,21 @@ const EstateTypeDetails = () => {
   }, [name, setValue]);
 
   const handleSubmit = useCallback(async () => {
-    await updateEstateType({
-      name: getValues('name'),
-      description: getValues('description'),
-    });
-    router.push('/estate-types');
+    try {
+      await updateEstateType({
+        name: getValues('name'),
+        description: getValues('description'),
+      });
+      router.push('/estate-types');
+    } catch (error: any) {
+      setError(error.response.data);
+    }
   }, [getValues, router]);
 
   return (
     <div className={styles.container}>
       <EstateTypeForm estateTypeForm={form} onSubmit={handleSubmit} />
+      <p>{error}</p>
     </div>
   );
 };

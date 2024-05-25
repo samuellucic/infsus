@@ -22,7 +22,6 @@ const InputTextField = <T extends FieldValues>({
   register,
   errors,
   disabled,
-  isNumber = false,
   ...props
 }: InputTextFieldProps<T>) => {
   const errorExist = !!(errors && errors[id]);
@@ -33,7 +32,7 @@ const InputTextField = <T extends FieldValues>({
       InputLabelProps={{ shrink: valueExist }}
       id={id}
       label={label}
-      {...register(id, { valueAsNumber: isNumber })}
+      {...register(id)}
       error={errorExist && valueExist}
       helperText={
         errorExist && valueExist ? (errors[id]?.message as string) : ''

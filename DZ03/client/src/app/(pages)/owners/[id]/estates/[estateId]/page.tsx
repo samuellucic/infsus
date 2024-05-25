@@ -19,6 +19,7 @@ const EstateDetails = () => {
   const router = useRouter();
   const estateId = parseInt(useParams().estateId as string);
   const ownerId = parseInt(useParams().id as string);
+  const [error, setError] = useState<string>('');
 
   const [estateTypes, setEstateTypes] = useState<EstateType[]>([]);
   const [towns, setTowns] = useState<Town[]>([]);
@@ -28,9 +29,10 @@ const EstateDetails = () => {
     defaultValues: {
       address: '',
       description: '',
-      price: undefined,
-      area: undefined,
+      price: 0,
+      area: 0,
       estateType: '',
+      town: 0,
     },
   });
   const { setValue, getValues } = form;
@@ -41,8 +43,8 @@ const EstateDetails = () => {
       setValue('description', data.description);
       setValue('price', data.price);
       setValue('area', data.area);
-      setValue('estateType', data.estateTypeName);
-      setValue('town', data.townId);
+      setValue('estateType', data.estateType.name);
+      setValue('town', data.town.id!);
     });
   }, [estateId, setValue]);
 
@@ -57,17 +59,22 @@ const EstateDetails = () => {
   }, []);
 
   const handleSubmit = useCallback(async () => {
-    await updateEstate({
-      id: estateId,
-      address: getValues('address'),
-      description: getValues('description'),
-      area: getValues('area'),
-      price: getValues('price'),
-      estateTypeName: getValues('estateType'),
-      townId: getValues('town'),
-      ownerId,
-    });
-  }, [getValues, estateId, ownerId]);
+    try {
+      await updateEstate({
+        id: estateId,
+        address: getValues('address'),
+        description: getValues('description'),
+        area: getValues('area'),
+        price: getValues('price'),
+        estateTypeName: getValues('estateType'),
+        townId: getValues('town'),
+        ownerId,
+      });
+      router.push(`/owners/${ownerId}`);
+    } catch (error: any) {
+      setError(error.response.data);
+    }
+  }, [getValues, estateId, ownerId, router]);
 
   return (
     <div className={styles.container}>
@@ -77,6 +84,7 @@ const EstateDetails = () => {
         towns={towns}
         onSubmit={handleSubmit}
       />
+      <p>{error}</p>
     </div>
   );
 };

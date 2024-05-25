@@ -7,6 +7,8 @@ export type Id = {
   id: number | string;
 };
 
+export type FormType = 'create' | 'update';
+
 export interface Pageable {
   page: number;
   size: number;
@@ -49,7 +51,17 @@ export interface EstateOwner {
   townId: number;
 }
 
-export interface Estate {
+export interface EstateGet {
+  id?: number;
+  price: number;
+  address: string;
+  area: number;
+  description: string;
+  estateType: EstateType;
+  town: Town;
+}
+
+export interface EstateCreate {
   id?: number;
   price: number;
   address: string;
@@ -57,9 +69,6 @@ export interface Estate {
   description: string;
   estateTypeName: string;
   townId: number;
-}
-
-export interface EstateCreate extends Estate {
   ownerId: number;
 }
 
@@ -74,12 +83,4 @@ export interface Town {
   postCode: string;
   region: string;
   country: string;
-}
-
-export interface Column<T> {
-  id: keyof T;
-  label: string;
-  minWidth?: number;
-  align?: 'right';
-  format?: (value: T[keyof T]) => ReactNodeArray;
 }

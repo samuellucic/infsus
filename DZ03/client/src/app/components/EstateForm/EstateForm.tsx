@@ -39,6 +39,7 @@ const EstateForm = ({
   const watchedArea = watch('area');
   const watchedPrice = watch('price');
   const watchedEstateType = watch('estateType');
+  const watchedTown = watch('town');
 
   useEffect(() => {
     trigger('address');
@@ -46,6 +47,7 @@ const EstateForm = ({
     trigger('area');
     trigger('price');
     trigger('estateType');
+    trigger('town');
   }, [
     trigger,
     watchedAddress,
@@ -53,7 +55,10 @@ const EstateForm = ({
     watchedArea,
     watchedPrice,
     watchedEstateType,
+    watchedTown,
   ]);
+
+  console.log(errors, watch('price'));
 
   return (
     <form
@@ -112,12 +117,13 @@ const EstateForm = ({
           name={'town'}
           rules={{ required: true }}
           render={({ field }) => {
+            console.log('FIELD', field);
             return (
               <Select
                 id="town"
                 labelId="town-label"
                 label="Town"
-                value={`${field.value}`}
+                value={field.value}
                 inputRef={field.ref}
                 onChange={(val) => {
                   field.onChange(val);

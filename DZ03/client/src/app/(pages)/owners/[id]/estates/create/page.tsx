@@ -16,15 +16,17 @@ const EstateDetails = () => {
 
   const [estateTypes, setEstateTypes] = useState<EstateType[]>([]);
   const [towns, setTowns] = useState<Town[]>([]);
+  const [error, setError] = useState<string>('');
 
   const form = useForm<EstateFormType>({
     resolver: zodResolver(EstateSchema),
     defaultValues: {
       address: '',
       description: '',
-      price: undefined,
-      area: undefined,
+      price: 0,
+      area: 0,
       estateType: '',
+      town: 0,
     },
   });
   const { getValues } = form;
@@ -40,16 +42,20 @@ const EstateDetails = () => {
   }, []);
 
   const handleSubmit = useCallback(async () => {
-    await createEstate({
-      address: getValues('address'),
-      description: getValues('description'),
-      area: getValues('area'),
-      price: getValues('price'),
-      estateTypeName: getValues('estateType'),
-      townId: getValues('town'),
-      ownerId,
-    });
-    router.push(`/owners/${ownerId}`);
+    try {
+      await createEstate({
+        address: getValues('address'),
+        description: getValues('description'),
+        area: getValues('area'),
+        price: getValues('price'),
+        estateTypeName: getValues('estateType'),
+        townId: getValues('town'),
+        ownerId,
+      });
+      router.push(`/owners/${ownerId}`);
+    } catch (error: any) {
+      setError(error.response.data);
+    }
   }, [getValues, router, ownerId]);
 
   return (
@@ -60,6 +66,7 @@ const EstateDetails = () => {
         towns={towns}
         onSubmit={handleSubmit}
       />
+      <p>{error}</p>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
-import { EstateSchema, OwnerFormType } from '@/app/lib/formTypes';
+import { OwnerFormType, OwnerSchema } from '@/app/lib/formTypes';
 import { zodResolver } from '@hookform/resolvers/zod';
 import OwnerForm from '../../../components/OwnerForm/OwnerForm';
 import { useCallback, useEffect, useState } from 'react';
@@ -17,24 +17,25 @@ import { Pageable, Town } from '@/app/lib/types';
 import GenericTable from '../../../components/CoreComponents/GenericTable/GenericTable';
 import styles from './page.module.css';
 import { Button } from '@mui/material';
-import { ownerTableColumns } from '@/app/utils/ownerConstants';
 import Link from 'next/link';
+import { estateTableColumns } from '@/app/utils/estateConstants';
 
 const OwnerDetails = () => {
   const router = useRouter();
   const id = parseInt(useParams().id as string);
+  const [error, setError] = useState<string>('');
 
   const [towns, setTowns] = useState<Town[]>([]);
 
   const form = useForm<OwnerFormType>({
-    resolver: zodResolver(EstateSchema),
+    resolver: zodResolver(OwnerSchema),
     defaultValues: {
       name: '',
       surname: '',
       address: '',
       birthDate: '',
       email: '',
-      town: undefined,
+      town: 0,
     },
   });
   const { setValue, getValues } = form;
@@ -60,15 +61,19 @@ const OwnerDetails = () => {
   );
 
   const handleSubmit = useCallback(async () => {
-    await updateOwner({
-      id,
-      name: getValues('name'),
-      surname: getValues('surname'),
-      email: getValues('email'),
-      birthDate: getValues('birthDate'),
-      address: getValues('address'),
-      townId: getValues('town'),
-    });
+    try {
+      await updateOwner({
+        id,
+        name: getValues('name'),
+        surname: getValues('surname'),
+        email: getValues('email'),
+        birthDate: getValues('birthDate'),
+        address: getValues('address'),
+        townId: getValues('town'),
+      });
+    } catch (error: any) {
+      setError(error.response.data);
+    }
   }, [getValues, id]);
 
   const handleRowClick = useCallback(
@@ -94,7 +99,7 @@ const OwnerDetails = () => {
       />
       <div className={styles['detail-container']}>
         <GenericTable
-          columns={ownerTableColumns}
+          columns={estateTableColumns}
           fetchData={fetchEstates}
           onRowClick={handleRowClick}
           onItemDelete={handleItemDelete}
@@ -103,6 +108,7 @@ const OwnerDetails = () => {
           <Button variant="outlined">Add a new estate</Button>
         </Link>
       </div>
+      <p>{error}</p>
     </div>
   );
 };

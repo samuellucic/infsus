@@ -5,6 +5,8 @@ import hr.unizg.fer.nis.ports.usecases.requests.EstateOwnerCreateRequest
 import hr.unizg.fer.nis.ports.usecases.requests.EstateOwnerUpdateRequest
 import hr.unizg.fer.nis.adapters.usecases.EstateOwnerUseCase
 import hr.unizg.fer.nis.adapters.usecases.TownUseCase
+import hr.unizg.fer.nis.ports.usecases.IEstateOwnerUseCase
+import hr.unizg.fer.nis.ports.usecases.ITownUseCase
 import jakarta.validation.ConstraintViolationException
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
@@ -14,8 +16,8 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/api/owner")
 class EstateOwnerController(
-    private val estateOwnerUseCase: EstateOwnerUseCase,
-    private val townUseCase: TownUseCase
+    private val estateOwnerUseCase: IEstateOwnerUseCase,
+    private val townUseCase: ITownUseCase
 ) {
 
     @PostMapping
