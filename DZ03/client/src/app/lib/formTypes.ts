@@ -26,11 +26,12 @@ export const EstateTypeSchema = z
 export type EstateTypeFormType = z.infer<typeof EstateTypeSchema>;
 
 export const EstateSchema = z.object({
-  price: z.number(),
+  price: z.coerce.number(),
   address: z.string(),
-  area: z.number(),
+  area: z.coerce.number(),
   description: z.string(),
   estateType: z.string(),
+  town: z.number(),
 });
 
 export type EstateFormType = z.infer<typeof EstateSchema>;

@@ -67,6 +67,7 @@ class EstateController(
         area = this.area,
         price = this.price,
         description = this.description,
-        estateType = this.estateType.name
+        estateTypeName = this.estateType.name,
+        townId = this.town.id
     )
 }

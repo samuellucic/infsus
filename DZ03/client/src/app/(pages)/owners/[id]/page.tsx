@@ -7,6 +7,7 @@ import OwnerForm from '../../../components/OwnerForm/OwnerForm';
 import { useCallback, useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import {
+  deleteEstate,
   getEstatesOwnedByOwner,
   getOwner,
   getTowns,
@@ -71,8 +72,16 @@ const OwnerDetails = () => {
   }, [getValues, id]);
 
   const handleRowClick = useCallback(
-    async (id: number) => router.push(`/estates/${id}`),
-    [router]
+    async (estateId: number) =>
+      router.push(`/owners/${id}/estates/${estateId}`),
+    [id, router]
+  );
+
+  const handleItemDelete = useCallback(
+    async (estateId: number) => {
+      await deleteEstate(id, estateId);
+    },
+    [id]
   );
 
   return (
@@ -88,8 +97,9 @@ const OwnerDetails = () => {
           columns={ownerTableColumns}
           fetchData={fetchEstates}
           onRowClick={handleRowClick}
+          onItemDelete={handleItemDelete}
         />
-        <Link href="/estates/create">
+        <Link href={`/owners/${id}/estates/create`}>
           <Button variant="outlined">Add a new estate</Button>
         </Link>
       </div>

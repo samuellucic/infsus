@@ -1,5 +1,5 @@
 import { EstateFormType } from '@/app/lib/formTypes';
-import { UseFormReturn } from 'react-hook-form';
+import { Controller, UseFormReturn } from 'react-hook-form';
 import {
   Button,
   FormControl,
@@ -10,16 +10,23 @@ import {
 import styles from './EstateForm.module.css';
 import InputTextField from '@/app/components/CoreComponents/InputTextField';
 import { useEffect } from 'react';
-import { EstateType } from '@/app/lib/types';
+import { EstateType, Town } from '@/app/lib/types';
 
 export interface EstateFormProps {
   estateForm: UseFormReturn<EstateFormType>;
   estateTypes: EstateType[];
+  towns: Town[];
   onSubmit: () => void;
 }
 
-const EstateForm = ({ estateForm, estateTypes, onSubmit }: EstateFormProps) => {
+const EstateForm = ({
+  estateForm,
+  estateTypes,
+  towns,
+  onSubmit,
+}: EstateFormProps) => {
   const {
+    control,
     getValues,
     register,
     watch,
@@ -82,6 +89,7 @@ const EstateForm = ({ estateForm, estateTypes, onSubmit }: EstateFormProps) => {
           watch={watch}
           register={register}
           errors={errors}
+          isNumber
           required
         />
       </div>
@@ -93,24 +101,65 @@ const EstateForm = ({ estateForm, estateTypes, onSubmit }: EstateFormProps) => {
           watch={watch}
           register={register}
           errors={errors}
+          isNumber
           required
         />
       </div>
       <FormControl variant="outlined">
+        <InputLabel id="town-label">Town</InputLabel>
+        <Controller
+          control={control}
+          name={'town'}
+          rules={{ required: true }}
+          render={({ field }) => {
+            return (
+              <Select
+                id="town"
+                labelId="town-label"
+                label="Town"
+                value={`${field.value}`}
+                inputRef={field.ref}
+                onChange={(val) => {
+                  field.onChange(val);
+                }}>
+                {towns &&
+                  towns.map(({ id, name }) => (
+                    <MenuItem key={id} value={id}>
+                      {name}
+                    </MenuItem>
+                  ))}
+              </Select>
+            );
+          }}
+        />
+      </FormControl>
+      <FormControl variant="outlined">
         <InputLabel id="estate-type-label">Estate type</InputLabel>
-        <Select
-          id="estateType"
-          labelId="estate-type-label"
-          label="Estate type"
-          {...register('estateType')}
-          value={getValues('estateType')}>
-          {estateTypes &&
-            estateTypes.map(({ name }) => (
-              <MenuItem key={name} value={name}>
-                {name}
-              </MenuItem>
-            ))}
-        </Select>
+        <Controller
+          control={control}
+          name={'estateType'}
+          rules={{ required: true }}
+          render={({ field }) => {
+            return (
+              <Select
+                id="estateType"
+                labelId="estate-type-label"
+                label="Estate type"
+                value={field.value}
+                inputRef={field.ref}
+                onChange={(val) => {
+                  field.onChange(val);
+                }}>
+                {estateTypes &&
+                  estateTypes.map(({ name }) => (
+                    <MenuItem key={name} value={name}>
+                      {name}
+                    </MenuItem>
+                  ))}
+              </Select>
+            );
+          }}
+        />
       </FormControl>
       <Button
         variant="outlined"

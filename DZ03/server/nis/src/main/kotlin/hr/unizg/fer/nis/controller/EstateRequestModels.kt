@@ -22,10 +22,11 @@ data class EstateUpdateRequest(
 )
 
 data class EstateResponse(
-    val id?: Long,
+    val id: Long?,
     val price: Double,
     val address: String,
     val area: Int,
     val description: String,
-    val estateTypeName: String
+    val estateTypeName: String,
+    val townId: Long?
 )

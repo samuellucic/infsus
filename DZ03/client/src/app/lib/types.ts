@@ -55,7 +55,12 @@ export interface Estate {
   address: string;
   area: number;
   description: string;
-  estateType: string;
+  estateTypeName: string;
+  townId: number;
+}
+
+export interface EstateCreate extends Estate {
+  ownerId: number;
 }
 
 export interface EstateType {

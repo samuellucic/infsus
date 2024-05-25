@@ -5,16 +5,17 @@ import { EstateFormType, EstateSchema } from '@/app/lib/formTypes';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useCallback, useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { getEstate, getEstateTypes, updateEstate } from '@/app/api/api';
-import { EstateType } from '@/app/lib/types';
+import { createEstate, getEstateTypes, getTowns } from '@/app/api/api';
+import { EstateType, Town } from '@/app/lib/types';
 import styles from './page.module.css';
 import EstateForm from '@/app/components/EstateForm/EstateForm';
 
 const EstateDetails = () => {
   const router = useRouter();
-  const id = parseInt(useParams().id as string);
+  const ownerId = parseInt(useParams().id as string);
 
   const [estateTypes, setEstateTypes] = useState<EstateType[]>([]);
+  const [towns, setTowns] = useState<Town[]>([]);
 
   const form = useForm<EstateFormType>({
     resolver: zodResolver(EstateSchema),
@@ -26,17 +27,11 @@ const EstateDetails = () => {
       estateType: '',
     },
   });
-  const { setValue, getValues } = form;
+  const { getValues } = form;
 
   useEffect(() => {
-    getEstate(id).then((data) => {
-      setValue('address', data.address);
-      setValue('description', data.description);
-      setValue('price', data.price);
-      setValue('area', data.area);
-      setValue('estateType', data.estateType);
-    });
-  }, [id, setValue]);
+    getTowns().then((data) => setTowns(data));
+  }, []);
 
   useEffect(() => {
     getEstateTypes({ page: 0, size: 1000 }).then((data) =>
@@ -45,21 +40,24 @@ const EstateDetails = () => {
   }, []);
 
   const handleSubmit = useCallback(async () => {
-    await updateEstate({
-      id,
+    await createEstate({
       address: getValues('address'),
       description: getValues('description'),
       area: getValues('area'),
       price: getValues('price'),
-      estateType: getValues('estateType'),
+      estateTypeName: getValues('estateType'),
+      townId: getValues('town'),
+      ownerId,
     });
-  }, [getValues, id]);
+    router.push(`/owners/${ownerId}`);
+  }, [getValues, router, ownerId]);
 
   return (
     <div className={styles.container}>
       <EstateForm
         estateForm={form}
         estateTypes={estateTypes}
+        towns={towns}
         onSubmit={handleSubmit}
       />
     </div>

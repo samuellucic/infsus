@@ -5,6 +5,8 @@ import { Column, EstateOwner } from '../../lib/types';
 import { useRouter } from 'next/navigation';
 import { deleteOwner, getOwners } from '../../api/api';
 import GenericTable from '../../components/CoreComponents/GenericTable/GenericTable';
+import { Button } from '@mui/material';
+import Link from 'next/link';
 
 const params = {
   page: 0,
@@ -59,6 +61,9 @@ const Owners = () => {
 
   return (
     <>
+      <Link href="/owners/create">
+        <Button variant="outlined">Add a new owner</Button>
+      </Link>
       <GenericTable
         columns={columns}
         fetchData={getOwners}

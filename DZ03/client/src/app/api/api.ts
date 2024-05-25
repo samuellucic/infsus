@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {
   Estate,
+  EstateCreate,
   EstateOwner,
   EstateType,
   Pageable,
@@ -56,16 +57,20 @@ export const getEstate = async (id: number) => {
   return (await api.get<Estate>(`/estate/${id}`)).data;
 };
 
-export const createEstate = async (estate: Estate) => {
+export const createEstate = async (estate: EstateCreate) => {
   return await api.post('/estate', estate);
 };
 
-export const updateEstate = async (estate: Estate) => {
-  return await api.post('/estate/update', estate);
+export const updateEstate = async (estate: EstateCreate) => {
+  return await api.post('/estate/update', estate, {
+    params: { ownerId: estate.ownerId },
+  });
 };
 
-export const deleteEstate = async (estateId: number) => {
-  return await api.delete(`/estate/${estateId}`);
+export const deleteEstate = async (ownerId: number, estateId: number) => {
+  return await api.delete(`/estate/${estateId}`, {
+    params: { ownerId },
+  });
 };
 
 // estate types

@@ -102,20 +102,32 @@ const OwnerForm = ({
         />
         <FormControl variant="outlined">
           <InputLabel id="town-label">Town</InputLabel>
-          <Select
-            id="town"
-            labelId="town-label"
-            label="Town"
-            {...register('town')}
-            value={`${getValues('town')}`}
-            disabled={disabled}>
-            {towns &&
-              towns.map(({ id, name }) => (
-                <MenuItem key={id} value={id}>
-                  {name}
-                </MenuItem>
-              ))}
-          </Select>
+          <Controller
+            control={control}
+            name={'town'}
+            rules={{ required: true }}
+            render={({ field }) => {
+              return (
+                <Select
+                  id="town"
+                  labelId="town-label"
+                  label="Town"
+                  value={`${field.value}`}
+                  inputRef={field.ref}
+                  onChange={(val) => {
+                    field.onChange(val);
+                  }}
+                  disabled={disabled}>
+                  {towns &&
+                    towns.map(({ id, name }) => (
+                      <MenuItem key={id} value={id}>
+                        {name}
+                      </MenuItem>
+                    ))}
+                </Select>
+              );
+            }}
+          />
         </FormControl>
       </div>
       {formType === 'create' && (
