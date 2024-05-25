@@ -1,8 +1,10 @@
 'use client';
 
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
-import Header from '../components/Header/Header';
-import { headerItems } from '../utils/headerConstants';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
+import { ReactNode } from 'react';
 
 const darkTheme = createTheme({
   palette: {
@@ -10,13 +12,16 @@ const darkTheme = createTheme({
   },
 });
 
-const AppLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
+const AppLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
     <>
       <ThemeProvider theme={darkTheme}>
-        <CssBaseline />
-        <Header headerItems={headerItems} />
-        {children}
+        <LocalizationProvider
+          dateAdapter={AdapterDayjs}
+          adapterLocale={dayjs.locale('hr')}>
+          <CssBaseline />
+          {children}
+        </LocalizationProvider>
       </ThemeProvider>
     </>
   );

@@ -7,13 +7,13 @@ export interface HeaderItem {
 // "label" attr should be treated as UNIQUE
 export const headerItems: HeaderItem[] = [
   {
-    title: 'First title',
-    label: 'real-estate-type-1',
-    url: '/real-estate-type',
+    title: 'Owners',
+    label: 'owners',
+    url: '/owners',
   },
   {
-    title: 'Second title',
-    label: 'real-estate-type-2',
-    url: '/real-estate-type',
+    title: 'Estate types',
+    label: 'estate-types',
+    url: '/estate-types',
   },
 ];

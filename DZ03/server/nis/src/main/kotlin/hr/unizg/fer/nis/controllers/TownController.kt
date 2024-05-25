@@ -2,6 +2,7 @@ package hr.unizg.fer.nis.controllers
 
 import hr.unizg.fer.nis.domain.models.Town
 import hr.unizg.fer.nis.adapters.usecases.TownUseCase
+import hr.unizg.fer.nis.ports.usecases.ITownUseCase
 import jakarta.validation.ConstraintViolationException
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/api/town")
 class TownController(
-    private val townUseCase: TownUseCase
+    private val townUseCase: ITownUseCase
 ) {
     @PostMapping
     fun createTown(@RequestBody town: Town) = townUseCase.createTown(town)
