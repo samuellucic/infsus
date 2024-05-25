@@ -5,7 +5,7 @@ type LenFunProps = AtLeastOne<{
   maxLen: number;
 }>;
 
-export default {
+const regExp = {
   lengthAlpha: ({ minLen, maxLen }: LenFunProps) => {
     if (!minLen) {
       minLen = 0;
@@ -16,3 +16,5 @@ export default {
     return new RegExp(`^[0-9a-zA-Z]{${minLen},${maxLen}}$`);
   },
 };
+
+export default regExp;

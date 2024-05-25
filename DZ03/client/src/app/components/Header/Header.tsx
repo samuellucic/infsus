@@ -4,7 +4,7 @@ import styles from './Header.module.css';
 import classnames from 'classnames';
 import { HeaderItem } from '../../utils/headerConstants';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 export interface HeaderProps {
   headerItems: HeaderItem[];
@@ -12,7 +12,11 @@ export interface HeaderProps {
 
 const Header = ({ headerItems }: HeaderProps) => {
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState<number>(0);
+  const pathname = usePathname();
+
+  const [activeTab, setActiveTab] = useState<number>(
+    headerItems.findIndex(({ url }) => pathname === url)
+  );
 
   const handleTabChange = (tabId: number) => {
     setActiveTab(tabId);

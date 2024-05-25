@@ -1,18 +1,19 @@
 'use client';
 
-import RealEstateTypeForm from '../../components/RealEstateType/RealEstateTypeForm/RealEstateTypeForm';
+import EstateTypeForm from '../../../components/EstateType/EstateTypeForm/EstateTypeForm';
 import { useForm } from 'react-hook-form';
-import { RealEstateTypeFormType, RealEstateTypeSchema } from '../../lib/formTypes';
+import { EstateTypeFormType, EstateTypeSchema } from '@/app/lib/formTypes';
 import { useCallback } from 'react';
 import styles from './page.module.css';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { saveRealEstateType } from '../../api/RealEstateTypeApi';
 import { useRouter } from 'next/navigation';
+import { createEstateType } from '@/app/api/api';
 
-const RealEstateTypePage = () => {
+const EstateTypeCreatePage = () => {
   const router = useRouter();
-  const form = useForm<RealEstateTypeFormType>({
-    resolver: zodResolver(RealEstateTypeSchema),
+
+  const form = useForm<EstateTypeFormType>({
+    resolver: zodResolver(EstateTypeSchema),
     defaultValues: {
       name: '',
       description: '',
@@ -23,19 +24,19 @@ const RealEstateTypePage = () => {
 
   const handleSubmit = useCallback(async () => {
     // TODO RESPONSE AND ERROR
-    const res = await saveRealEstateType({
+    const res = await createEstateType({
       name: getValues('name'),
       description: getValues('description'),
     });
-    
-    router.push('/real-estate-type');
-  }, [getValues]);
+
+    router.push('/estate-types');
+  }, [router, getValues]);
 
   return (
     <div className={styles.container}>
-      <RealEstateTypeForm realEstateTypeForm={form} onSubmit={handleSubmit} />
+      <EstateTypeForm estateTypeForm={form} onSubmit={handleSubmit} />
     </div>
   );
 };
 
-export default RealEstateTypePage;
+export default EstateTypeCreatePage;

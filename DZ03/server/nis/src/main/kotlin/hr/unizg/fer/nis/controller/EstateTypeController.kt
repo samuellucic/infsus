@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.net.URLDecoder
 
 @RestController
 @RequestMapping("/api/estateType")
@@ -18,7 +19,10 @@ class EstateTypeController(
     fun createEstateType(@RequestBody estateType: EstateType) = estateTypeService.createEstateType(estateType)
 
     @GetMapping
-    fun getEstateTypeByName(@RequestParam("estateType") estateTypeName: String) = estateTypeService.getEstateTypeByName(estateTypeName)
+    fun getEstateTypeByName(@RequestParam("estateType") estateTypeName: String): EstateType {
+        val decodedName = URLDecoder.decode(estateTypeName, "UTF-8")
+        return estateTypeService.getEstateTypeByName(decodedName)
+    }
 
     @GetMapping("/all")
     fun getAllEstatesForOwner(pageable: Pageable) = estateTypeService.getAllEstateTypes(pageable)

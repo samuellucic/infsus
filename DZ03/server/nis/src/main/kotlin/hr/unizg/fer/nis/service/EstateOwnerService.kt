@@ -2,7 +2,6 @@ package hr.unizg.fer.nis.service
 
 import hr.unizg.fer.nis.model.EstateOwner
 import hr.unizg.fer.nis.repository.EstateOwnerRepository
-import hr.unizg.fer.nis.repository.EstateRepository
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional

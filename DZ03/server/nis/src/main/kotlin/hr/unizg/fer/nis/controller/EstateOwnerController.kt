@@ -20,17 +20,17 @@ class EstateOwnerController(
         estateOwnerCreateRequest.mapToEstate(), estateOwnerCreateRequest.townId)
 
     @GetMapping("/{ownerId}")
-    fun getEstateOwnerById(@PathVariable ownerId: Long) = estateOwnerService.getEstateOwnerById(ownerId)
+    fun getEstateOwnerById(@PathVariable ownerId: Long) = estateOwnerService.getEstateOwnerById(ownerId).mapToResponse()
 
     @GetMapping("/all")
-    fun getAllEstateOwnersPaginated(pageable: Pageable) = estateOwnerService.getAllOwnersPaginated(pageable)
+    fun getAllEstateOwnersPaginated(pageable: Pageable) = estateOwnerService.getAllOwnersPaginated(pageable).map { estateOwner -> estateOwner.mapToResponse() }
 
     @PostMapping("/update")
     fun updateEstateOwner(@RequestBody estateOwnerUpdateRequest: EstateOwnerUpdateRequest) = estateOwnerService.updateEstateOwner(
         estateOwnerUpdateRequest.mapToEstate()
     )
 
-    @DeleteMapping("{ownerId}")
+    @DeleteMapping("/{ownerId}")
     fun deleteEstateOwnerById(@PathVariable ownerId: Long) = estateOwnerService.deleteEstateOwnerById(ownerId)
 
 
@@ -56,5 +56,16 @@ class EstateOwnerController(
         address = this.address,
         email = this.email,
         town = townService.getTownById(this.townId)
+    )
+
+    fun EstateOwner.mapToResponse() = EstateOwnerResponse(
+        id = this.id,
+        name = this.name,
+        surname = this.surname,
+        address = this.address,
+        birthDate = this.birthDate,
+        email = this.email,
+        townId = this.town.id!!,
+        townName = this.town.name
     )
 }

@@ -19,6 +19,9 @@ class EstateController(
     private val estateTypeService: EstateTypeService
 ) {
 
+    @GetMapping("/{estateId}")
+    fun getEstateById(@PathVariable estateId: Long) = estateService.getEstateById(estateId)
+
     @PostMapping
     fun createEstateForOwner(@RequestBody estateCreateRequest: EstateCreateRequest) = estateService.createEstateForOwner(estateCreateRequest.mapToEstate())
 
@@ -56,5 +59,14 @@ class EstateController(
         estateOwner = estateOwnerService.getEstateOwnerById(this.ownerId),
         town = townService.getTownById(this.townId),
         estateType = estateTypeService.getEstateTypeByName(this.estateTypeName)
+    )
+
+    fun Estate.mapToEstateResponse() = EstateResponse(
+        id = this.id,
+        address = this.address,
+        area = this.area,
+        price = this.price,
+        description = this.description,
+        estateType = this.estateType.name
     )
 }
