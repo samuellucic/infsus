@@ -1,0 +1,1 @@
+org.springframework.test.context.ContextCustomizerFactory = hr.unizg.fer.nis.config.SqlTestContainersSpringContextCustomizerFactory
