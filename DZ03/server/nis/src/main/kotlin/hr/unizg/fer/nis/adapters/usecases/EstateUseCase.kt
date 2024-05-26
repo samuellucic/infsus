@@ -16,6 +16,7 @@ import jakarta.validation.ConstraintViolationException
 import jakarta.validation.Validator
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
+import kotlin.jvm.optionals.getOrElse
 
 @Service
 class EstateUseCase(
@@ -34,7 +35,7 @@ class EstateUseCase(
             throw ConstraintViolationException(violations)
         }
 
-        val owner = IEstateOwnerRepository.findById(estate.estateOwner.id!!).get()
+        val owner = IEstateOwnerRepository.findById(estate.estateOwner.id!!).getOrElse { throw IllegalArgumentException("Owner with this ID does not exist.") }
         owner.estates.add(estate)
         if (!isValidOwner(owner)) {
             throw IllegalArgumentException("Owner cannot have more than $MAX_ESTATES estates.")
@@ -68,7 +69,7 @@ class EstateUseCase(
         if (existingEstate.isEmpty) {
             throw IllegalArgumentException("Cannot update non-existing estate.")
         }
-        val owner = IEstateOwnerRepository.findById(estate.estateOwner.id!!).get()
+        val owner = IEstateOwnerRepository.findById(estate.estateOwner.id!!).getOrElse { throw IllegalArgumentException("Owner with this ID does not exist.") }
         if(owner.id != estate.estateOwner.id) {
             owner.estates.add(estate)
         }
