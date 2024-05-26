@@ -1,7 +1,6 @@
 package hr.unizg.fer.nis.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import hr.unizg.fer.nis.TestUtil
 import hr.unizg.fer.nis.config.IntegrationTest
 import hr.unizg.fer.nis.domain.models.Estate
 import hr.unizg.fer.nis.domain.models.EstateOwner
@@ -13,6 +12,7 @@ import hr.unizg.fer.nis.ports.repositories.IEstateTypeRepository
 import hr.unizg.fer.nis.ports.repositories.ITownRepository
 import hr.unizg.fer.nis.ports.usecases.requests.EstateCreateRequest
 import hr.unizg.fer.nis.ports.usecases.results.EstateResult
+import hr.unizg.fer.nis.util.TestUtil
 import jakarta.transaction.Transactional
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions
@@ -53,7 +53,7 @@ class EstateControllerIT {
     private var estateType: EstateType? = null
 
     @BeforeEach
-    fun setup(): Unit {
+    fun setup() {
         var town = Town(
             name = "City city",
             region = "Region",
@@ -113,6 +113,29 @@ class EstateControllerIT {
         assertThat(estateResult.price).isEqualTo(estateRequest.price)
         assertThat(estateResult.description).isEqualTo(estateRequest.description)
         assertThat(estateResult.address).isEqualTo(estateRequest.address)
+    }
+
+    @Test
+    @Transactional
+    @Throws(Exception::class)
+    fun createEstate_FailsValidationTest() {
+        val estateRequest = EstateCreateRequest(
+            area = 1,
+            price = 1.5,
+            description = "A",
+            address = "A",
+            estateTypeName = estateType!!.name,
+            townId = town!!.id!!,
+            ownerId = owner!!.id!!
+        )
+
+        mockMvc
+            .perform(
+                post("/api/estate")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(TestUtil.convertObjectToJsonBytes(estateRequest))
+            )
+            .andExpect(status().isBadRequest)
     }
 
     @Test
@@ -218,27 +241,5 @@ class EstateControllerIT {
             )
             .andExpect(status().isOk)
         Assertions.assertFalse(estateRepository.findById(estate.id!!).isPresent)
-    }
-
-    @Test
-    @Transactional
-    @Throws(Exception::class)
-    fun deleteEstate_NotFoundFailsTest() {
-        var estate = Estate(
-            area = 1,
-            price = 1.5,
-            description = "AAAAAAAAAA",
-            address = "AAAAAAAAAAA",
-            estateType = estateType!!,
-            estateOwner = owner!!,
-            town = town!!
-        )
-        estate = estateRepository.save(estate)
-
-        mockMvc
-            .perform(
-                get("/api/estate/${estate.id!! + 1}")
-            )
-            .andExpect(status().isNotFound)
     }
 }

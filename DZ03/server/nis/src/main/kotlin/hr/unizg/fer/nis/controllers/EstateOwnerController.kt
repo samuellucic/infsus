@@ -1,12 +1,8 @@
 package hr.unizg.fer.nis.controllers
 
-import hr.unizg.fer.nis.domain.models.EstateOwner
+import hr.unizg.fer.nis.ports.usecases.IEstateOwnerUseCase
 import hr.unizg.fer.nis.ports.usecases.requests.EstateOwnerCreateRequest
 import hr.unizg.fer.nis.ports.usecases.requests.EstateOwnerUpdateRequest
-import hr.unizg.fer.nis.adapters.usecases.EstateOwnerUseCase
-import hr.unizg.fer.nis.adapters.usecases.TownUseCase
-import hr.unizg.fer.nis.ports.usecases.IEstateOwnerUseCase
-import hr.unizg.fer.nis.ports.usecases.ITownUseCase
 import jakarta.validation.ConstraintViolationException
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
@@ -17,7 +13,6 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/api/owner")
 class EstateOwnerController(
     private val estateOwnerUseCase: IEstateOwnerUseCase,
-    private val townUseCase: ITownUseCase
 ) {
 
     @PostMapping
@@ -35,7 +30,7 @@ class EstateOwnerController(
         estateOwnerUpdateRequest
     )
 
-    @DeleteMapping("{ownerId}")
+    @DeleteMapping("/{ownerId}")
     fun deleteEstateOwnerById(@PathVariable ownerId: Long) = estateOwnerUseCase.deleteEstateOwnerById(ownerId)
 
     @ExceptionHandler(ConstraintViolationException::class)
@@ -48,13 +43,4 @@ class EstateOwnerController(
     fun handleIllegalArgumentException(ex: IllegalArgumentException): ResponseEntity<String> {
         return ResponseEntity(ex.message, HttpStatus.NOT_FOUND)
     }
-
-    fun EstateOwnerCreateRequest.mapToEstate() = EstateOwner(
-        name = this.name,
-        surname = this.surname,
-        birthDate = this.birthDate,
-        address = this.address,
-        email = this.email,
-        town = townUseCase.getTownById(this.townId)
-    )
 }
