@@ -1,3 +1,4 @@
+
 spring:
   datasource:
     url: ${DATABASE_URL}
@@ -13,3 +14,7 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     database-platform: org.hibernate.dialect.SQLServerDialect
     show-sql: true
+server:
+  port: 10000
+camunda.bpm.client:
+  base-url: http://localhost:8080/engine-rest
