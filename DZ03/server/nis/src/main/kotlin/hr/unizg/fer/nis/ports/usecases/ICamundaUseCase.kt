@@ -1,7 +1,6 @@
 package hr.unizg.fer.nis.ports.usecases
 
 import hr.unizg.fer.nis.ports.usecases.requests.*
-import org.camunda.bpm.engine.task.Task
 
 interface ICamundaUseCase {
     fun startCamundaProcess(camundaStartProcessRequest: CamundaStartProcessRequest): String
@@ -20,7 +19,7 @@ interface ICamundaUseCase {
 
     fun decideSuggestedTour(camundaDecideRequest: CamundaDecideRequest)
 
-    //fun getTourInfo(): List<TourInfo>
+    fun getTourInfo(pid: String): TourInfo
 
     fun getUnassignedTasksPerGroup(groupId: String): List<TaskInfo>
 }

@@ -42,4 +42,7 @@ class CamundaController(
 
     @GetMapping("/unassigned")
     fun getUnassignedTasksPerGroup(@RequestParam("groupId") groupId: String) = camundaUseCase.getUnassignedTasksPerGroup(groupId)
+
+    @GetMapping("/tourinfo")
+    fun getTourInfo(@RequestParam pid: String) = camundaUseCase.getTourInfo(pid)
 }

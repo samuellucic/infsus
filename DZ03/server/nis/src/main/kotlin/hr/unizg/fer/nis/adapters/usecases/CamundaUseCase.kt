@@ -3,12 +3,12 @@ package hr.unizg.fer.nis.adapters.usecases
 import hr.unizg.fer.nis.ports.usecases.ICamundaUseCase
 import hr.unizg.fer.nis.ports.usecases.requests.*
 import org.camunda.bpm.engine.HistoryService
-import org.camunda.bpm.engine.IdentityService
 import org.camunda.bpm.engine.RuntimeService
 import org.camunda.bpm.engine.TaskService
-import org.camunda.bpm.engine.task.Task
 import org.camunda.bpm.engine.variable.Variables
+import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
+import org.springframework.web.client.RestTemplate
 import java.util.stream.Collectors
 
 @Service
@@ -84,6 +84,26 @@ class CamundaUseCase(
         taskService.complete(camundaDecideRequest.taskId, variables)
     }
 
+    override fun getTourInfo(pid: String): TourInfo {
+        val restTemplate = RestTemplate()
+        val getUrl = "http://localhost:8080/engine-rest/history/variable-instance?processInstanceId=$pid"
+        val response: ResponseEntity<Array<VariableInstance>> =
+            restTemplate.getForEntity(getUrl, Array<VariableInstance>::class.java)
+        val variables = response.body?.toList() ?: emptyList()
+
+        val pid = variables.first().processInstanceId
+        return TourInfo(
+            requestId = variables.find { it.name == "requestId" }?.value as Int?,
+            termFits = variables.find { it.name == "termFits" }?.value as Boolean?,
+            tourDateTime = variables.find { it.name == "TourDateTime" }?.value as String?,
+            agentId = variables.find { it.name == "agentId" }?.value as String?,
+            buyerId = variables.find { it.name == "buyerId" }?.value as String?,
+            estateId = variables.find { it.name == "estateId" }?.value as Int?,
+            pid = pid
+        )
+    }
+
+
     override fun getUnassignedTasksPerGroup(groupId: String): List<TaskInfo> {
         val groupTasks = taskService.createTaskQuery()
             .taskCandidateGroup(groupId)
@@ -111,42 +131,6 @@ class CamundaUseCase(
         val variables = taskService.getVariables(taskInfo.tId)
         taskInfo.variables = variables
     }
-
-//    override fun getTourInfo(): List<TourInfo> {
-//        val historyList = historyService.createHistoricProcessInstanceQuery()
-//            .processDefinitionKey(PROCESS_KEY)
-//            .list()
-//        print(historyList[0])
-//        val tours = historyList.map {
-//            val tourInfo = TourInfo(
-//                pid = it.id,
-//                startTime = it.startTime,
-//                endTime = it.endTime,
-//                ended = it.endTime != null
-//            )
-//            loadInstanceVariables(tourInfo)
-//            tourInfo
-//        }
-//
-//        return tours
-//    }
-//
-//
-//    private fun loadInstanceVariables(tourInfo: TourInfo) {
-//        print("eee")
-//        print(tourInfo)
-//        val variablesList = historyService.createHistoricVariableInstanceQuery()
-//            .processInstanceId(tourInfo.pid)
-//            .list()
-//
-//        tourInfo.agentId = variablesList.find { it.variableName == "agentId" }?.value as String?
-//        tourInfo.termFits = variablesList.find { it.variableName == "termFits" }?.value as Boolean?
-//        tourInfo.tourDateTime = variablesList.find { it.variableName == "tourDateTime" }?.value as String?
-//        tourInfo.requestId = variablesList.find { it.variableName == "requestId" }?.value as String?
-//        tourInfo.buyerId = variablesList.find { it.variableName == "buyerId" }?.value as String?
-//        tourInfo.estateId = variablesList.find { it.variableName == "estateId" }?.value as String?
-//    }
-
 
     private companion object {
         const val PROCESS_KEY = "TourArrangement"
