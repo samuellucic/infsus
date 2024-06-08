@@ -2,6 +2,8 @@ package hr.unizg.fer.nis.adapters.usecases
 
 import hr.unizg.fer.nis.domain.models.EstateOwner
 import hr.unizg.fer.nis.domain.models.MAX_ESTATES
+import hr.unizg.fer.nis.ports.repositories.IEstateOwnerRepository
+import hr.unizg.fer.nis.ports.repositories.IEstateRepository
 import hr.unizg.fer.nis.ports.usecases.IEstateUseCase
 import hr.unizg.fer.nis.ports.usecases.requests.EstateCreateMapper
 import hr.unizg.fer.nis.ports.usecases.requests.EstateCreateRequest
@@ -9,8 +11,6 @@ import hr.unizg.fer.nis.ports.usecases.requests.EstateUpdateMapper
 import hr.unizg.fer.nis.ports.usecases.requests.EstateUpdateRequest
 import hr.unizg.fer.nis.ports.usecases.results.EstateResult
 import hr.unizg.fer.nis.ports.usecases.results.mapToEstateResult
-import hr.unizg.fer.nis.ports.repositories.IEstateOwnerRepository
-import hr.unizg.fer.nis.ports.repositories.IEstateRepository
 import jakarta.transaction.Transactional
 import jakarta.validation.ConstraintViolationException
 import jakarta.validation.Validator
@@ -26,6 +26,9 @@ class EstateUseCase(
     private val estateCreateMapper: EstateCreateMapper,
     private val estateUpdateMapper: EstateUpdateMapper
 ): IEstateUseCase {
+
+    override fun getEstates() = IEstateRepository.findAll().map { it.mapToEstateResult() }
+
     @Transactional
     override fun createEstateForOwner(estateCreateRequest: EstateCreateRequest): EstateResult {
         val estate = estateCreateMapper.mapToEstate(estateCreateRequest)

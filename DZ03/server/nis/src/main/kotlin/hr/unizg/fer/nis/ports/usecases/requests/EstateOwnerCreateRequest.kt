@@ -1,8 +1,8 @@
 package hr.unizg.fer.nis.ports.usecases.requests
 
+import hr.unizg.fer.nis.adapters.usecases.TownUseCase
 import hr.unizg.fer.nis.domain.models.EstateOwner
 import hr.unizg.fer.nis.domain.models.Town
-import hr.unizg.fer.nis.adapters.usecases.TownUseCase
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import java.time.Instant

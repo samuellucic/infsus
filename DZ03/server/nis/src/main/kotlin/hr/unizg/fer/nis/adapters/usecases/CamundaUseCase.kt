@@ -1,10 +1,15 @@
 package hr.unizg.fer.nis.adapters.usecases
 
+import hr.unizg.fer.nis.ports.repositories.IEstateRepository
 import hr.unizg.fer.nis.ports.usecases.ICamundaUseCase
 import hr.unizg.fer.nis.ports.usecases.requests.*
 import org.camunda.bpm.engine.HistoryService
+import org.camunda.bpm.engine.IdentityService
 import org.camunda.bpm.engine.RuntimeService
 import org.camunda.bpm.engine.TaskService
+import org.camunda.bpm.engine.identity.User
+import org.camunda.bpm.engine.impl.IdentityServiceImpl
+import org.camunda.bpm.engine.impl.persistence.entity.UserEntity
 import org.camunda.bpm.engine.variable.Variables
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
@@ -14,10 +19,12 @@ import java.util.stream.Collectors
 @Service
 class CamundaUseCase(
     private val runtimeService: RuntimeService,
-    //private val identityService: IdentityService,
     private val taskService: TaskService,
-    private val historyService: HistoryService
+    private val historyService: HistoryService,
+    private val estateRepository: IEstateRepository,
 ): ICamundaUseCase {
+
+    private val identityService: IdentityService = IdentityServiceImpl()
 
     override fun startCamundaProcess(camundaStartProcessRequest: CamundaStartProcessRequest): String {
         val variables = Variables.createVariables()
@@ -65,13 +72,15 @@ class CamundaUseCase(
 
         return userTasks.stream()
             .map { task ->
-                TaskInfo(
+                val taskInfo = TaskInfo(
                     tId = task.id,
                     taskName = task.name,
                     taskKey = task.taskDefinitionKey,
                     pId = task.processInstanceId,
-                    startTime = task.createTime
+                    startTime = task.createTime,
                 )
+                loadTaskVariables(taskInfo)
+                taskInfo
             }
             .collect(Collectors.toList())
     }
@@ -82,6 +91,25 @@ class CamundaUseCase(
         )
 
         taskService.complete(camundaDecideRequest.taskId, variables)
+    }
+
+    override fun getTourInfo(): List<TourInfo> {
+        val historyList = historyService.createHistoricProcessInstanceQuery()
+            .processDefinitionKey(PROCESS_KEY)
+            .list()
+
+        return historyList
+            .map {
+                val tourInfo = getTourInfo(it.id)
+
+                tourInfo.startTime = it.startTime
+                tourInfo.ended = it.endTime != null
+                loadUserData(tourInfo)
+                tourInfo
+            }
+            .filter {
+                !it.ended!!
+            }
     }
 
     override fun getTourInfo(pid: String): TourInfo {
@@ -102,7 +130,6 @@ class CamundaUseCase(
             pid = pid
         )
     }
-
 
     override fun getUnassignedTasksPerGroup(groupId: String): List<TaskInfo> {
         val groupTasks = taskService.createTaskQuery()
@@ -130,7 +157,55 @@ class CamundaUseCase(
     private fun loadTaskVariables(taskInfo: TaskInfo) {
         val variables = taskService.getVariables(taskInfo.tId)
         taskInfo.variables = variables
+        loadUserData(taskInfo)
     }
+
+    private fun loadUserData(taskInfo: TaskInfo) {
+        val userData = loadUserData((taskInfo.variables!!["estateId"] as Long).toInt(), taskInfo.variables!!["buyerId"] as String, taskInfo.variables!!["agentId"] as String)
+
+        userData.buyerName?.let {
+            taskInfo.variables!!["buyerName"] = userData.buyerName!!
+        }
+        userData.agentName?.let {
+            taskInfo.variables!!["agentName"] = userData.agentName!!
+        }
+        taskInfo.variables!!["estateDescription"] = userData.estateDescription!!
+    }
+
+    private fun loadUserData(tourInfo: TourInfo) {
+        val userData = loadUserData(tourInfo.estateId!!, tourInfo.buyerId, tourInfo.agentId)
+        tourInfo.buyerName = userData.buyerName
+        tourInfo.agentName = userData.agentName
+        tourInfo.estateDescription = userData.estateDescription
+    }
+
+    private fun loadUserData(estateId: Int, buyerId: String? = null, agentId: String? = null): UserData {
+        val restTemplate = RestTemplate()
+
+        val buyerUrl = "http://localhost:8080/engine-rest/user/${buyerId}/profile"
+        val agentUrl = "http://localhost:8080/engine-rest/user/${agentId}/profile"
+
+        val userData = UserData()
+
+        buyerId?.let {
+            val buyerInfo: User? = restTemplate.getForEntity(buyerUrl, UserEntity::class.java).body
+            userData.buyerName = "${buyerInfo?.firstName} ${buyerInfo?.lastName}"
+        }
+        agentId?.let {
+            val agentInfo: User? = restTemplate.getForEntity(agentUrl, UserEntity::class.java).body
+            userData.agentName = "${agentInfo?.firstName} ${agentInfo?.lastName}"
+        }
+        userData.estateDescription = estateRepository.findById(estateId.toLong()).get().description
+
+
+        return userData
+    }
+
+    private data class UserData (
+        var buyerName: String? = null,
+        var agentName: String? = null,
+        var estateDescription: String? = null,
+    )
 
     private companion object {
         const val PROCESS_KEY = "TourArrangement"

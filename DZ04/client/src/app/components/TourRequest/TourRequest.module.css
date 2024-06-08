@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+
+  justify-content: space-between;
+
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: 2px solid var(--grey-4);
+
+  width: 20rem;
+  max-height: 20rem;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem
+}
+
+.buyer {
+  font-weight: bold;
+}
+
+.estate {
+
+}
+
+.button {
+
+  padding: 0.5rem 0.25rem;
+  border: 2px solid var(--grey-4);
+  border-radius: 0.6rem; 
+
+  transition: 200ms all ease-in;
+}
+
+.button:hover {
+  background-color: var(--hover);
+}

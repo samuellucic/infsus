@@ -8,14 +8,14 @@ import hr.unizg.fer.nis.ports.usecases.requests.EstateOwnerCreateRequestMapper
 import hr.unizg.fer.nis.ports.usecases.requests.EstateOwnerUpdateRequestMapper
 import hr.unizg.fer.nis.ports.usecases.results.mapToEstateOwnerResult
 import jakarta.validation.ConstraintViolation
+import jakarta.validation.ConstraintViolationException
+import org.junit.Assert.assertEquals
 import org.junit.Test
+import org.junit.jupiter.api.assertThrows
 import org.mockito.Mockito.*
 import org.mockito.kotlin.eq
 import org.mockito.kotlin.whenever
 import java.time.Instant
-import org.junit.jupiter.api.assertThrows
-import jakarta.validation.ConstraintViolationException
-import org.junit.Assert.assertEquals
 import java.util.*
 
 class EstateOwnerUseCaseTest {

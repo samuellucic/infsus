@@ -1,8 +1,8 @@
 package hr.unizg.fer.nis.adapters.usecases
 
 import hr.unizg.fer.nis.domain.models.EstateType
-import hr.unizg.fer.nis.ports.usecases.IEstateTypeUseCase
 import hr.unizg.fer.nis.ports.repositories.IEstateTypeRepository
+import hr.unizg.fer.nis.ports.usecases.IEstateTypeUseCase
 import jakarta.validation.Valid
 import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.data.domain.Pageable

@@ -1,7 +1,11 @@
 package hr.unizg.fer.nis.controllers
 
 import hr.unizg.fer.nis.ports.usecases.ICamundaUseCase
-import hr.unizg.fer.nis.ports.usecases.requests.*
+import hr.unizg.fer.nis.ports.usecases.requests.CamundaDecideRequest
+import hr.unizg.fer.nis.ports.usecases.requests.CamundaPickTaskRequest
+import hr.unizg.fer.nis.ports.usecases.requests.CamundaPreSuggestTourRequest
+import hr.unizg.fer.nis.ports.usecases.requests.CamundaStartProcessRequest
+import hr.unizg.fer.nis.ports.usecases.requests.CamundaSuggestTourRequest
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -44,5 +48,5 @@ class CamundaController(
     fun getUnassignedTasksPerGroup(@RequestParam("groupId") groupId: String) = camundaUseCase.getUnassignedTasksPerGroup(groupId)
 
     @GetMapping("/tourinfo")
-    fun getTourInfo(@RequestParam pid: String) = camundaUseCase.getTourInfo(pid)
+    fun getTourInfo() = camundaUseCase.getTourInfo()
 }
