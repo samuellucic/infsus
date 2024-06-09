@@ -25,10 +25,6 @@ class CamundaController(
     @PostMapping("/presuggest")
     fun preSuggestTour(@RequestBody camundaPreSuggestTourRequest: CamundaPreSuggestTourRequest) = camundaUseCase.preSuggestTour(camundaPreSuggestTourRequest)
 
-
-//    @PostMapping("/check")
-//    fun isUserInGroup(@RequestBody camundaCheckUserGroupRequest: CamundaCheckUserGroupRequest) = camundaUseCase.isUserInGroup(camundaCheckUserGroupRequest)
-
     @PostMapping("/pick")
     fun pickTask(@RequestBody pickTaskRequest: CamundaPickTaskRequest) = camundaUseCase.pickTask(pickTaskRequest)
 
@@ -49,4 +45,7 @@ class CamundaController(
 
     @GetMapping("/tourinfo")
     fun getTourInfo() = camundaUseCase.getTourInfo()
+
+    @GetMapping("/notifications")
+    fun getNotificationsForUserAndTopic(@RequestParam("userId") userId: String, @RequestParam("topic") topic: String) = camundaUseCase.getNotificationsForUserAndTopic(userId, topic)
 }

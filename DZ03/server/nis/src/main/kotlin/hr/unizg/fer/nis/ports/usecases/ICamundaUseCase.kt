@@ -1,5 +1,6 @@
 package hr.unizg.fer.nis.ports.usecases
 
+import hr.unizg.fer.nis.domain.models.Notification
 import hr.unizg.fer.nis.ports.usecases.requests.CamundaDecideRequest
 import hr.unizg.fer.nis.ports.usecases.requests.CamundaPickTaskRequest
 import hr.unizg.fer.nis.ports.usecases.requests.CamundaPreSuggestTourRequest
@@ -12,8 +13,6 @@ interface ICamundaUseCase {
     fun startCamundaProcess(camundaStartProcessRequest: CamundaStartProcessRequest): String
 
     fun preSuggestTour(camundaPreSuggestTourRequest: CamundaPreSuggestTourRequest)
-
-//    fun isUserInGroup(camundaCheckUserGroupRequest: CamundaCheckUserGroupRequest): Boolean
 
     fun pickTask(pickTaskRequest: CamundaPickTaskRequest)
 
@@ -30,4 +29,6 @@ interface ICamundaUseCase {
     fun getTourInfo(): List<TourInfo>
 
     fun getUnassignedTasksPerGroup(groupId: String): List<TaskInfo>
+
+    fun getNotificationsForUserAndTopic(userId: String, topic: String): List<Notification>
 }

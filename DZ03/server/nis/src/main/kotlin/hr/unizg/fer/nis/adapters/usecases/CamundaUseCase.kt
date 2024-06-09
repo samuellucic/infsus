@@ -1,6 +1,8 @@
 package hr.unizg.fer.nis.adapters.usecases
 
+import hr.unizg.fer.nis.domain.models.Notification
 import hr.unizg.fer.nis.ports.repositories.IEstateRepository
+import hr.unizg.fer.nis.ports.repositories.INotificationRepository
 import hr.unizg.fer.nis.ports.usecases.ICamundaUseCase
 import hr.unizg.fer.nis.ports.usecases.requests.*
 import org.camunda.bpm.engine.HistoryService
@@ -22,6 +24,7 @@ class CamundaUseCase(
     private val taskService: TaskService,
     private val historyService: HistoryService,
     private val estateRepository: IEstateRepository,
+    private val notificationRepository: INotificationRepository
 ): ICamundaUseCase {
 
     private val identityService: IdentityService = IdentityServiceImpl()
@@ -152,6 +155,16 @@ class CamundaUseCase(
                 taskInfo
             }
             .collect(Collectors.toList())
+    }
+
+    override fun getNotificationsForUserAndTopic(userId: String, topic: String): List<Notification> {
+        val notifications = notificationRepository.findByUserIdAndDeliveredAndTopic(userId, 0, topic)
+        notifications.forEach {
+            val readNotification = it.copy(delivered = 1)
+            notificationRepository.save(readNotification)
+        }
+
+        return notifications
     }
 
     private fun loadTaskVariables(taskInfo: TaskInfo) {
