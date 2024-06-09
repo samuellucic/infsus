@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 
 interface IEstateUseCase {
+    fun getEstates(): List<EstateResult>
     fun createEstateForOwner(estateCreateRequest: EstateCreateRequest): EstateResult
     fun getEstatesByOwnerId(ownerId: Long, pageable: Pageable): Page<EstateResult>
     fun getEstateById(id: Long): EstateResult

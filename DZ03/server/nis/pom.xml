@@ -21,6 +21,7 @@
         <hibernate-validator.version>8.0.1.Final</hibernate-validator.version>
         <testcontainers-junit-jupiter.version>1.19.8</testcontainers-junit-jupiter.version>
         <mssqlserver.version>1.19.8</mssqlserver.version>
+        <camunda.spring-boot.version>7.21.0</camunda.spring-boot.version>
     </properties>
     <dependencies>
         <dependency>
@@ -97,6 +98,36 @@
             <groupId>org.mockito.kotlin</groupId>
             <artifactId>mockito-kotlin</artifactId>
             <version>${mockito-kotlin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.community.rest</groupId>
+            <artifactId>camunda-platform-7-rest-client-spring-boot-starter</artifactId>
+            <version>7.21.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-httpclient</artifactId>
+            <version>13.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.bpm</groupId>
+            <artifactId>camunda-external-task-client</artifactId>
+            <version>7.21.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.bpm.springboot</groupId>
+            <artifactId>camunda-bpm-spring-boot-starter-external-task-client</artifactId>
+            <version>7.21.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.bpm</groupId>
+            <artifactId>camunda-engine</artifactId>
+            <version>7.21.0</version>
         </dependency>
 
     </dependencies>
