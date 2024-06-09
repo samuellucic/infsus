@@ -27,10 +27,10 @@ export const startProcess = async (startProcessData: StartProcessData) => {
   return await api.post('/camunda/start', startProcessData);
 };
 
-export const getNotifications = async (id: number) => {
-  const res = await api.get<NotificationData[]>('/notifications', {
+export const getNotifications = async (userId: string) => {
+  const res = await api.get<NotificationData[]>('/camunda/notifications', {
     params: {
-      id,
+      userId,
     },
   });
   return res.data;

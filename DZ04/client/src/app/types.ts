@@ -11,6 +11,7 @@ export interface StartProcessData {
 }
 
 export interface NotificationData {
+  id: number;
   message: string;
 }
 

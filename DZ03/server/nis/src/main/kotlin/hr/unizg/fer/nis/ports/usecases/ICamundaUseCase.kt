@@ -30,5 +30,5 @@ interface ICamundaUseCase {
 
     fun getUnassignedTasksPerGroup(groupId: String): List<TaskInfo>
 
-    fun getNotificationsForUserAndTopic(userId: String, topic: String): List<Notification>
+    fun getNotificationsForUser(userId: String): List<Notification>
 }

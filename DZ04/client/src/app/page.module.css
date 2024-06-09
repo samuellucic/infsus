@@ -1,0 +1,28 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+  gap: 2rem;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.button {
+  padding: 0.5rem 2rem;
+  border: 2px solid var(--grey-4);
+  border-radius: 0.6rem;
+
+  transition: 200ms all ease-in;
+}
+
+.button:hover {
+  background-color: var(--hover);
+}

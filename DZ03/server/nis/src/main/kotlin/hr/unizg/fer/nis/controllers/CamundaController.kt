@@ -47,5 +47,5 @@ class CamundaController(
     fun getTourInfo() = camundaUseCase.getTourInfo()
 
     @GetMapping("/notifications")
-    fun getNotificationsForUserAndTopic(@RequestParam("userId") userId: String, @RequestParam("topic") topic: String) = camundaUseCase.getNotificationsForUserAndTopic(userId, topic)
+    fun getNotificationsForUser(@RequestParam("userId") userId: String) = camundaUseCase.getNotificationsForUser(userId)
 }

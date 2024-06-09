@@ -157,8 +157,8 @@ class CamundaUseCase(
             .collect(Collectors.toList())
     }
 
-    override fun getNotificationsForUserAndTopic(userId: String, topic: String): List<Notification> {
-        val notifications = notificationRepository.findByUserIdAndDeliveredAndTopic(userId, 0, topic)
+    override fun getNotificationsForUser(userId: String): List<Notification> {
+        val notifications = notificationRepository.findByUserIdAndDelivered(userId, 0)
         notifications.forEach {
             val readNotification = it.copy(delivered = 1)
             notificationRepository.save(readNotification)

@@ -1,18 +1,41 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { getEstates, getInfo, getTasks } from '../../../api/api';
-import { EstateData, TermProposalOverviewTaskData } from '../../../types';
+import {
+  getEstates,
+  getInfo,
+  getNotifications,
+  getTasks,
+} from '../../../api/api';
+import {
+  EstateData,
+  NotificationData,
+  TermProposalOverviewTaskData,
+} from '../../../types';
 import TourItem from '../../../components/TourItem/TourItem';
 import styles from './page.module.css';
 import { useParams } from 'next/navigation';
 import TermProposalOverview from '@/app/components/TermProposalOverview/TermProposalOverview';
+import Notification from '@/app/components/Notification/Notification';
 
 const BuyerPage = () => {
   const { buyer }: { buyer: string } = useParams();
 
   const [estates, setEstates] = useState<EstateData[]>([]);
   const [terms, setTerms] = useState<TermProposalOverviewTaskData[]>([]);
+  const [notifications, setNotifications] = useState<NotificationData[]>([]);
+
+  useEffect(() => {
+    const ref = setInterval(async () => {
+      const data = await getNotifications(buyer);
+      if (data.length > 0) {
+        setNotifications(data);
+      }
+    }, 3000);
+    return () => {
+      clearInterval(ref);
+    };
+  }, []);
 
   const fetchEstates = useCallback(async () => {
     const estates = await getEstates();
@@ -46,6 +69,15 @@ const BuyerPage = () => {
 
   return (
     <main className={styles.container}>
+      <section className={styles.section}>
+        <h1>Notifications</h1>
+        <div className={styles['requests-container']}>
+          {notifications.length > 0 &&
+            notifications.map(({ message, id }) => (
+              <Notification message={message} key={id} />
+            ))}
+        </div>
+      </section>
       <section className={styles.section}>
         <h1>Apply for tour</h1>
         <div className={styles['requests-container']}>
